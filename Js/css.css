@@ -1,0 +1,48 @@
+
+table {
+    background-color: rgba(0, 0, 0, .3);
+    border: 1px dashed black;
+    margin-top: 2em;
+    padding: 1em;
+  }
+  
+  table tr {
+    padding-bottom: .5em;
+  }
+  
+  table td {
+    border-radius: 8px;
+    font-size: 125%;
+    min-width: 200px;
+    padding: 1.75em 0;
+    text-align: center;
+    transition: background-color 0.33s;
+  }
+  table td.equal {
+    color: #ff9659;
+    font-weight: bold;
+  }
+  table td:hover {
+    background-color: rgba(0, 0, 0, 0.66);
+    cursor: pointer;
+  }
+  
+  .Card{
+      width: 150px;
+      background: rgb(17, 110, 13);
+      color: aliceblue;
+      border: rgb(0, 0, 0) 1px solid;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-left: 50px;
+
+  }
+  .packet{
+      display: flex;
+      flex-direction: row;
+      margin: 50px;
+    }
+  

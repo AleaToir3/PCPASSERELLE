@@ -1,0 +1,8 @@
+*{
+    background: rgb(252, 219, 219);
+}
+h1::after{
+    content: "#";
+}h1::before{
+    content: ".";
+}

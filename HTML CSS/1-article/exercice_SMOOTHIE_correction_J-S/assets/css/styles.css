@@ -1,0 +1,93 @@
+
+/**************************** GENERALES ***********************/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1060px;
+    margin: 0 auto;
+}
+
+.img-fluid{
+    width: 100%;
+}
+
+/****************************** TYPOGRAPHIES *********************/
+h2 {
+    text-transform: uppercase;
+}
+
+
+
+/******************************* GRID **********************/
+.w33{
+    width: 33%;
+}
+
+.w50{
+    width: 50%;
+}
+
+.w66{
+    width: 66%;
+}
+
+.p10 {
+    padding: 10px;
+}
+.p20 {
+    padding: 20px;
+}
+.p30 {
+    padding: 30px;
+}   
+
+.text-center {
+    text-align: center;
+}
+
+/**************************** HEADER ***********************/
+header {
+    padding-top: 300px;
+    padding-bottom: 250px;            
+    background: url('../images/detox_cure_smoothie.jpg');
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+header h1 {
+    color: white;
+    text-align: center;
+
+}
+
+/**************************** SECTION DEVISE ***********************************/
+#devise > .container {
+    display: flex;
+}
+
+/**************************** SECTION FABRICATION ***********************************/
+
+#fabrication {
+    background: rgb(254,180,195);
+    background: linear-gradient(180deg, rgba(254,180,195,1) 0%, rgba(245,158,40,1) 100%);
+    color: white;
+}
+
+#fabrication ul {
+    list-style: none;
+}
+/**************************** SECTION CONCEPT  ***********************************/
+#concept ul {
+    list-style: none;
+    display: flex;
+}
+
+/****************************** FOOTER *************************************/
+footer {
+    background-color: rgba(245,158,40,1);
+}

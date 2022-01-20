@@ -1,0 +1,437 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;700;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    font-size: 62,5%;
+}
+/* ************************  HEADER  ************************ */
+#burger,.topH nav label {
+    display: none;
+}
+header {
+    background: rgb(122, 41, 96);
+    background: linear-gradient(
+        166deg,
+        rgba(122, 41, 96, 0.6) 0%,
+        rgba(15, 15, 15, 0.1) 100%),
+    url(/assets/img/fitness.jpg);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+.topH {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+}
+img[alt="logo"] {
+    width: 50px;
+}
+
+header ol {
+    list-style-type: none;
+    display: flex;
+}
+header li{ 
+padding: 0.5rem;
+margin-right: 1rem;
+}
+header li:last-child{
+    background-color: rgb(122, 41, 96);
+    border-radius: 3px;
+}
+.bodyH{
+    align-self: center;
+    text-align: center;
+}
+.bodyH h1{
+    font-size: 5rem;
+    font-style: italic;
+    font-weight: 900;
+}
+.footerH{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding:5rem;
+}
+.footerH h2{
+    font-weight:300 ;
+    font-size:medium;
+}
+.footerH h1{
+    font-weight:600;
+    font-size: x-large;
+}
+.crossfit,.fullbody{
+    /* width: 28%;
+    height: 28%; */
+    padding: 6rem;
+    transform: translatey(10rem);
+    background-position:  5% 5%;
+    background-repeat: no-repeat;
+    object-fit: fill;
+    text-align: center;
+    box-sizing: content-box;
+
+}
+.crossfit{
+    background: rgb(122, 41, 96);
+    background: linear-gradient(
+        166deg,
+        rgba(10, 10, 10, 0.6) 0%,
+        rgba(15, 15, 15, 0.1) 100%),
+    url(/assets/img/fitnessman.jpg);
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+}
+.fullbody{
+    background: rgb(122, 41, 96);
+    background: linear-gradient(
+        166deg,
+        rgba(122, 41, 96, 0.6) 0%,
+        rgba(15, 15, 15, 0.1) 100%),
+    url(/assets/img/fitnesswoman.jpg);
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+/* ************************  MAIN  ************************ */
+
+    /*****************  TOP  *****************/
+main .top{
+    margin: 10rem 0 5rem;
+    text-align: center;
+}
+
+    /*****************  CARD MINI  *****************/
+.aMiniCard{
+    display: flex;
+    flex-direction: row;
+}
+.cardMini{
+    border: 1px rgb(192, 188, 188) solid;
+    border-right: 0px;
+    text-align: center;
+    width: calc(100% / 4);
+    padding: 3rem 1.5rem;
+    
+}
+.cardMini:last-child{
+    border-right: 1px;
+}
+    /*****************  IMG CENTER  *****************/
+.imgCenter{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 8rem 0 ;
+   
+    background: rgb(122, 41, 96);
+    background: linear-gradient(
+        -90deg,
+        rgba(10, 10, 10, 1) 45%,
+        rgba(15, 15, 15, 0) 55%),
+    url(/assets/img/crossfit.jpg);
+    background-size: cover;
+    background-position:  center left ;
+    background-repeat: no-repeat;
+    
+}
+.imgCenter div{
+    width: 45%;
+    align-self: end;
+}
+.imgCenter h1{
+    font-size: x-large;
+    margin: 3rem 0 ;
+    transform: translatex(-2rem);
+
+}
+.imgCenter a{
+    background: rgb(122, 41, 96);
+    padding: 1rem;
+    text-decoration: none;
+    color: white;
+}
+
+.imgCenter p{
+    margin-bottom: 2rem;
+}
+    /*****************  CARD REGULAR *****************/
+.aRegCard{
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+}
+.regCard:nth-child(odd){
+    background: rgb(223, 218, 218);
+}
+.regCard{
+    width: calc(100% / 3);
+    text-align: center;
+    padding: 1.5rem;
+}
+
+
+/* ************************  footer  ************************ */
+    /*****************  footer TOP  *****************/
+ 
+footer .top{
+    width: 100vw;
+}
+footer .top iframe{
+    width: 100%;
+    border: 0;
+}
+.info,.adress{
+    width: 15%;
+}
+
+footer .bottom{
+    background: #000;
+    color: rgb(250, 249, 249);
+    display: flex;
+    width: 100%;
+    justify-content:  center;
+    border-top: rgb(122, 41, 96) 0.5rem solid;
+    font-weight: 300;
+} 
+.reseaux i{
+    margin-left: 1rem;
+}
+
+ .info{
+    text-align: right;
+    margin-top: 1rem;
+}
+footer .info p{
+    margin: 1rem 0;    
+} 
+    /*****************  footer form  *****************/
+
+footer .formContact{  
+    background: white;
+    color: black;
+    text-align: center;
+    z-index: 10;
+    width: 40%;
+    margin: 0 2rem;
+    padding: 3rem;
+    transform: translatey(-10rem);
+} 
+ footer form{
+    display: flex;
+    flex-direction: column; 
+    justify-content:center;
+
+} 
+ 
+.formContact p {
+    margin: 2rem ;
+}
+
+footer [type=text]{
+    border: 0;    
+    border-bottom: 1px solid black;
+    padding: 0.3rem 0;
+}
+footer input {
+    margin: 2rem 0;
+    outline: none;
+}
+footer input:focus {
+    border-bottom: 1px solid rgb(155, 45, 122);
+}
+
+footer [type=submit]{
+    background: rgb(124, 40, 99);
+    border: 0;
+    color: white;
+    margin-top: 2.5rem; 
+    width: 6rem;
+    padding: 1rem;
+    align-self: center;
+}
+
+footer input::placeholder {
+    color: rgb(78, 73, 73);
+} 
+    /*****************  footer contact *****************/
+
+footer li{
+    list-style: none;
+    background: #000;
+}
+footer li>:first-child{
+    padding: 1rem 0;
+}
+footer li i{
+    color: rgb(122, 41, 96);
+}
+.adress a{ 
+    text-decoration: none;
+    color: white;
+    display: block;
+    margin-left: 1.5rem;
+}
+.adress p{
+    margin-left: 1.5rem;
+
+}
+
+
+/* -----------------------------------------------------------------
+----------------------------------------------------------------- */
+
+
+@media only screen and (max-width: 990px) {
+
+    
+header{
+} 
+.crossfit,.fullbody{
+    transform: translatey(15rem);
+ 
+}
+.footerH{
+    padding:0rem;
+
+}
+main .top{
+    padding-top: 10rem;
+}
+.imgCenter{   
+
+    background-size: cover;
+    background-position:  center center ;
+    background-repeat: no-repeat;
+}
+
+.aRegCard{
+
+}
+.regCard{
+    width: calc(100% / 2);
+}
+.regCard:nth-child(3n){
+    background: rgb(252, 252, 252);
+}
+.regCard:nth-child(4n){
+    background: rgb(223, 218, 218);
+}
+
+.info,.adress{
+    width: 20%;
+}
+footer .formContact{
+    width: 60%;
+    margin: 0 1rem;
+    padding:1.5rem;
+}
+.cardMini{
+    padding: 2rem 1rem;
+}
+.regCard img,.cardMini img{
+    width: 3rem;
+}
+.regCard h2,.cardMini h2{
+    font-weight: 400;
+    font-size: large;
+}
+.regCard p,.cardMini p{
+    font-weight: 300;
+    font-size: small;
+}
+
+/* -----------------------------------------------------------------
+----------------------------------------------------------------- */
+@media only screen and (max-width: 768px) {
+    #burger,.topH nav label {
+        display: block;
+    }
+    header nav img {
+        width: 35px;
+    }
+    #burger,.topH nav  input[type=checkbox]:checked + ol{
+        display: none;
+        background: #000;
+    }
+ 
+    .topH{
+        background: rgb(122, 41, 96);
+        align-items: flex-start;
+        justify-content: space-between;
+    }  
+    .topH nav {
+        align-self:flex-end
+    }
+    .topH ol{
+        flex-direction: column;
+    }
+
+    .footerH{
+        flex-direction: column;
+        margin: 2rem;
+    }
+    .aMiniCard{
+        flex-wrap: wrap;
+    }
+    .cardMini{
+        width: calc(100% / 2);
+
+    }
+    .imgCenter{
+    background: #000;
+    flex-direction: row;
+    justify-content: center;
+    padding: 3rem;
+
+    }
+
+    .imgCenter h1{
+        font-size: x-large;
+        margin:0 ;
+        transform: translatex(0);
+
+    }
+
+    .regCard{
+        width: 100%;
+    }
+
+    footer .bottom{
+        flex-direction: column;
+        align-items: center;
+    }
+    footer .formContact{ 
+        transform: translatey(-3rem);
+        order: -1;
+        
+    }
+    .info,.adress{
+        width: 80%;
+    }
+    .info{
+        text-align: center;
+        padding: 0 2rem;
+    }
+    .adress{
+        text-align: left;
+        padding: 0.5rem 4rem 2rem 10rem;
+        align-self:center;
+    }
+
+

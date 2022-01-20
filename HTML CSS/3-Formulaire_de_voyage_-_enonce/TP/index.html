@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Agence de Voyage</title>
+</head>
+<body>
+    <main>
+        <form action="" method="get" id="genForm">
+            <div class="coordonnees">
+                        <label for="email">Entre votre email :</label>
+                            <input type="text" name="email">
+                        <label for="phone">Entre votre telephone :</label>
+                            <input type="text" name="phone">
+            </div>
+            <div class="infoPerso">
+                <div class="divNom">
+                    <label for="name">Entre votre nom :</label>
+                    <input type="text" name="name" id="name">
+                    <label for="firstname">Entre votre prenom :</label>
+                    <input type="text" name="firstname">   
+                </div>
+                <hr>
+                <div class="divGenre">
+                    <input type="radio" name="genre" value="homme" id="homme">    
+                    <label for="homme">Homme</label>
+                    <input type="radio" name="genre" value="femme" id="femme">
+                    <label for="femme">Femme</label>
+                    <input type="radio" name="genre" value="martiens" id="martiens">
+                    <label for="martiens">Martiens</label> 
+                </div>
+                <hr>
+                <div class="divAdress">
+                    <label for="adress">Entre votre adresse :</label>
+                        <input type="text" name="adress" id="adress">
+                    <label for="cp">Entre votre code postal :</label>
+                        <input type="text" name="cp">
+                    <label for="city">Entre votre ville :</label>
+                        <input type="text" name="city" id="city">
+
+                    <label for="departement">Selectionner votre departement :</label>
+                        <select name="departement" id="dep">
+                            <option value="Ile de france">ile de france</option>
+                            <option value="bretagne">bretagne</option>
+                        </select> 
+
+                </div>
+                <hr>
+                <div class="divBudjet">
+                    <p>Quel est votre bugjet pour aller en Vaaaaac !</p>
+                    <div class="divBudjetPrice">
+                        <p>Votre budjet :</p>
+                        <div class="datalist-range">
+                            <input type="range" list="budjet" step="25">
+                            <datalist id="budjet">
+                                <option value="0" label="0">
+                                <option value="25" label="25">
+                                <option value="50" label="50">
+                                <option value="75" label="75">
+                                <option value="100" label="100">
+                            </datalist>
+                        </div>
+                    </div>
+                    
+                </div>               
+            </div>
+            <hr>
+            <div class="langage">
+                <p>Cochez vos language :</p>
+                <label for="us">Anglais</label>
+                <input type="checkbox" name="us" id="us">
+                <label for="fra">Francais</label>
+                <input type="checkbox" name="fra" id="fra">
+                <label for="ar">Arabe</label>
+                <input type="checkbox" name="ar" id="ar">
+                <label for="ch">Chinois</label>
+                <input type="checkbox" name="ch" id="ch">
+            </div>
+
+            <div class="destination">
+                <p>Destination de reve</p>
+                <select name="destination" multiple>
+                    <option disabled>Europe</option>
+                    <option value ="paris">Paris</option>
+                    <option value ="london">London</option>
+                    <option value ="instabul">Instanbul</option>
+                    <option disabled>Etranger</option>
+                    <option value ="mekka">Mekka</option>
+                    <option value ="alger">Alger</option>
+                    <option value ="bamako">Bamako</option>
+                </select> 
+            </div>
+        <input type="submit" value="Enregistre">
+</form>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* mon objectif : ne pas utiliser les flexblox :) WIN ! */
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.devise, .concept{
+    margin-top: 2.5rem;
+}
+.container {
+    max-width:1060px;
+    margin: 0 auto;
+}
+header{
+    background: url(../img/detox\ cure\ smoothie.jpg);
+    background: cover no-repeat;
+    
+    padding: 10rem 0px;
+    color: aliceblue;
+    font-size: xx-large;
+    text-align: center;
+}
+.devise{
+    display: block;
+    padding-bottom: 2.5rem;;
+}
+
+.devise img{
+    float: left;
+    margin: 3rem;
+}
+
+.fabrication{
+    background: linear-gradient(0deg, rgba(245,158,40,1) 0%, rgba(254,180,195,1) 100%);
+    text-align: center;
+    color: white;
+    padding: 2rem 0;
+}
+.fabrication h2,.concept h2{
+    text-transform: uppercase;
+}
+.fabrication i {
+    display: block;
+    margin: 1rem;
+}
+
+.devise img{
+    width: 150px;
+}
+.concept h2{
+    text-align: center;
+}
+.container div{
+    text-align: center;
+    margin: 0 auto;
+
+}
+.concept div div {
+    display: inline-block;
+    text-align: center;
+}
+.concept div div div {
+    float: left;
+    width: 33%;
+}
+
+footer{
+    background: rgb(245,158,40);
+}
+footer h2{
+    text-align: center;
+    font-size: small;
+    text-transform: uppercase;
+    padding: 0.5rem;
+}

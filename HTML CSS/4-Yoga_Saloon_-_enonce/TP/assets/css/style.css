@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;1,700&display=swap');
+
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+ 
+input[type=radio]{
+display: none;
+}
+input[type="radio"]:checked + label{
+    border: solid 1px rgb(111, 114, 111);
+    padding: 0.5rem 0.8rem;
+    margin: 1rem;
+    border-radius: 15px;
+    background: rgb(199, 184, 184);
+    color: whitesmoke;
+}
+input[type="radio"] + label{
+    border: solid 1px rgb(119, 121, 119);
+    padding: 0.5rem 0.8rem;
+    margin: 1rem;
+    border-radius: 15px;
+}
+p{
+    font-weight: 300;
+}
+.container{
+    max-width: 1060px;
+    margin: 0 auto;
+}
+/* ********************HEADER************************** */
+header{
+    background: url(/assets/img/sdf.webp) no-repeat;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: rgb(248, 244, 237);
+}
+header ol,.menu ,.boit>div,.meur>div,.call,.pipied .container{
+    display: flex;
+    flex-flow: row nowrap;
+}
+.menu{
+    width: 100%;
+    justify-content: space-between;
+    padding: 2rem;
+}
+.menu img {
+    width: 100px;
+} 
+nav{
+align-self: center;
+margin-right: 2rem;
+}
+
+.headerBody button, input[type=submit]{
+
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    border: 1px black solid;
+    margin: 1.5rem;
+
+}
+ul{
+    list-style:none;
+    display: flex;
+}
+li{
+    padding-right: 2rem;
+    font-weight: 500;
+    font-size: large;
+
+}
+.headerBody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;}
+    section{
+    padding-left: 0 1.5rem;
+    }
+/* ********************MAIN************************** */
+.boit i{
+    width: 80px;
+    text-align: center;
+    margin: 1rem;
+}
+.boit>div{
+    align-items: center;
+}
+.boit p {
+    font-weight: 300;
+}
+.boit>div:nth-child(3){
+flex-direction: row-reverse;}
+
+
+.boit>h2::after,.meur>h2::after,.contact>h2::after{
+content: "";
+width: 3px;
+height: 50px;
+background: #000;
+display: block;
+border-radius: 1px;
+margin-bottom: 1rem;
+}
+.meur{
+    display: flex;
+    flex-direction: column;
+}
+.imgimg img{
+    width: 100%;
+}
+.imgimg{
+    width: 33%;
+}
+.meur>div{
+    width: 100%;
+}
+.txt{
+    width: 66%;
+}
+
+.call p {
+    /* padding: 0.5rem 0.8rem;
+    margin: 1rem; */
+    align-self: center;
+}
+.infos{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+.infos>input[type=text]{
+    border: 1px solid rgb(95, 88, 88);
+    border-radius:  15px; 
+    padding: 0.3rem;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    padding-left: 1rem;
+}
+
+/* ********************FOOTER************************** */
+footer{
+   background: #6B5757;
+   padding: 1rem 0 ; 
+   text-align: center;
+   color: white;
+   margin-top: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .menu{
+        padding: 0rem;
+    }
+
+ nav{
+     align-self: flex-end;
+     padding: 1rem;
+ }
+   .container{
+    width: 100vw;
+   }
+   header{
+       margin-bottom: 1rem;
+       background-position: 90% ;
+
+   }
+   .boit>div{
+       display: flex;
+       flex-flow: column wrap;
+       justify-content: center;
+       margin-bottom: 1.5rem;
+    }
+    .boit>div>div{
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center; 
+    }
+  
+    .boit>div:nth-child(3){
+        flex-direction: row-reverse;
+    }
+    .imgimg{
+       align-self: center; 
+    }
+    .call input[type="radio"]+label{
+        margin: 0rem;
+    }
+    .call label{
+        margin-left: 10rem;
+    }
+    h3{
+        margin-bottom: 1rem;
+    }
+     iframe { padding: 0 1rem;}
+}

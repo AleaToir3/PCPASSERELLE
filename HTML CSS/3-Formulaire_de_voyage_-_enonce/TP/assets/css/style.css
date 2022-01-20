@@ -1,0 +1,89 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;1,700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    background-image: url(/assets/img/bg.jpg);
+    background-size: cover;
+    background-position: top;
+    display: flex;
+    align-items: center;
+    
+}
+main{
+    width:70vh;
+    margin: 0 auto;
+    background: rgba(12, 11, 11, 0.8);
+    border-radius: 25px;
+    color: rgb(200, 203, 206);
+}
+#genForm,.coordonnees,.infoPerso,.divNom,.divAdress{
+    display: flex;
+    flex-flow: column nowrap;
+    
+}
+#genForm{
+    padding: 1rem 2rem;;
+}
+
+.langage p{
+    margin-bottom: 1rem;
+
+}
+.destination{
+display: flex;
+flex-flow: row;
+}
+.destination p {
+    margin-right: 2rem;
+    align-self: center;
+}
+.datalist-range {
+    display: inline-block;
+}
+.divBudjetPrice{
+  display: flex;
+  flex-direction: row; 
+}
+.divBudjetPrice p{
+    align-self: center;margin-right: 3rem;
+
+
+}
+.destination p{
+
+}
+datalist{
+    display: flex;
+    justify-content: space-between;
+}
+input[text]{
+    width: 150px;
+}
+hr{
+    margin: 1rem;
+}
+input[type=text],select{
+padding:0.3rem;
+width: 15rem;
+}
+input[type=submit]{
+    width: 10rem;
+    padding: 0.7rem;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    align-self: center;}
+input[type=submit]:hover{
+    background: rgb(146, 140, 140);
+    border: white 2px solid;
+    color: white;
+}
