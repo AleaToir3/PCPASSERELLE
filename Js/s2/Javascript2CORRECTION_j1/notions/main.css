@@ -1,0 +1,17 @@
+.contenu.important
+{
+    background-color: crimson;
+    color: white;
+}
+.contenu
+{
+    background-color: aquamarine;
+}
+
+.d-none /* équivalent à la classe Bootstrap */
+{
+    display: none;
+}
+.color-red{
+    color: red
+}
