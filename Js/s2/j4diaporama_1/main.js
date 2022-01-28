@@ -16,24 +16,29 @@ let btnPlay = document.querySelector(".bPlay");
 let btnStop = document.querySelector(".bStop");
 let btnReset = document.querySelector(".bReset");
 let diaporama;
+let playing = true;
 
 // ---- FONCTIONS
 
 
 let i = 0;
 function start() {
-    diaporama = setInterval(() => {
-        console.log("START",i);
-
-        if(i < photos.length-1 || i == 0){
-            next()
-            i++;
-        }else{
-            i=0;
-            before();
-        } 
-    }, 2000);   
+        if(playing){
+            playing = false;
+            diaporama = setInterval(() => {
+            console.log("START",i);
+            if(i < photos.length-1 || i == 0){
+                next()
+                i++;
+            }else{
+                i=0;
+                before();
+            } 
+        }, 2000);   
+    } else{
+    }
 }
+    
 function next() {
     photos[i].classList.toggle('visible');
     photos[i+1].classList.toggle('visible');
@@ -80,8 +85,9 @@ btnPlay.addEventListener('click',function () {
 })
 
 btnReset.addEventListener('click',function () {
-    console.log("RESET",i);
-    let i = 0;
-    start();
+  photos.forEach(photo => {
+    photos[i].classList.toggle('visible');
+
+  });
 })
 start();
