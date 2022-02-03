@@ -1,0 +1,9 @@
+pseudo : Benoit
+nom : Brice
+prenom : Benoit
+mdp : lkmfhjgmkjh
+mail : benoitbrice@gmail.com
+sexe : homme
+address : 2 ALLEE DU MUGUET
+cp : 60290
+ville : NEUILLY SOUS CLERMONT
