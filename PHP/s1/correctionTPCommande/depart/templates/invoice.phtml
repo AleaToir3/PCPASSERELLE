@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bons de commande (classicmodels)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/orders.css" rel="stylesheet">
+</head>
+<body class="container-fluid">
+    <header class="jumbotron">
+        <h1>Bon de commande n°<?= $_GET['id'] ?></h1>
+        <hr>
+        <p><< <a href="index.php">Retour à la page principale</a></p>
+    </header>
+
+    <section>
+        <?php echo $result['customerName']; ?><br />
+        <?php echo $result['addressLine1']; ?><br />
+        <?php echo $result['addressLine2']; ?><br />
+    </section>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Produit</th>
+                <th>Quantité</th>
+                <th class="text-right">Prix Unitaire</th>
+                <th class="text-right">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $somme = 0;
+            foreach($productLineResult as $row){ ?>
+                <tr>
+                    <td><?php echo $row['productName']; ?></td>
+                    <td><?php echo $row['quantityOrdered']; ?></td>
+                    <td class="text-right"><?php echo $row['MSRP']; ?></td>
+                    <td class="text-right"><?php echo ($row['quantityOrdered'] * $row['MSRP']); ?> €</td>
+                </tr>
+            <?php
+                $somme = $somme + ($row['quantityOrdered'] * $row['MSRP']);
+            } ?>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th class="text-right" colspan="3">Montant HT</th>
+                <th class="text-right"><?php echo number_format($somme, 2, ',', ' ');; ?> $</th>
+            </tr>
+            <tr>
+                <th class="text-right" colspan="3">TVA (20 %)</th>
+                <th class="text-right"><?php echo ($somme * 0.20); ?> $</th>
+            </tr>
+            <tr>
+                <th class="text-right" colspan="3">Montant TTC</th>
+                <th class="text-right"><?php echo ($somme + ($somme * 0.20)); ?> $</th>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
