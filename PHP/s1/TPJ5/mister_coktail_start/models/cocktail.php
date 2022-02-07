@@ -21,4 +21,22 @@ function oneCocktail()
    return  $resCocktail = $querycoktail->fetch(PDO::FETCH_ASSOC);
 }
 
+function addCocktail(){
+    $connect1 = bipbip();
+    $queryaddcok = $connect1->prepare('INSERT INTO Cocktail (nom,description,urlPhoto,dateConception,prixMoyen,idFamille) VALUES (?,?,?,?,?,?)');
+    $queryaddcok->execute([
+        $_GET['nomForm'],
+        $_GET['descriptionForm'],
+        $_FILES['urlPhotoForm']['name'],
+        $_GET['dateConceptionForm']."-10-10",
+        $_GET['PrixMoyForm'],
+        $_GET['idFamilleForm']        
+    ]);
+}
 
+function family(){
+    $connect1 = bipbip();
+    $queryfamille = $connect1-> prepare('SELECT * FROM `Famille`');   
+    $queryfamille->execute();
+    return  $resfamily = $queryfamille->fetchAll(PDO::FETCH_ASSOC);
+}

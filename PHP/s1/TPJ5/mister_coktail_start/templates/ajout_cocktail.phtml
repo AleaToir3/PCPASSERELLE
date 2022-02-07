@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="www/css/cocktails.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Mister Cocktail</title>
+
+</head>
+<body class="container-fluid">
+    <nav>
+        <a href="index.php">Accueil</a>
+        <h1>Mister Cocktail</h1>
+    </nav>
+
+    <div class="container">  
+        <div class="col-md-8 order-md-1">
+          <h4 class="mb-3">Ajoute de cocktail</h4>
+          <form class="needs-validation" method="post" enctype="multipart/form-data">
+<!-- -------------------------NOM--------------------------------- -->
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="nom"> Nom</label>
+                <input type="text" class="form-control" id="nom" name="nomForm" required>
+                <div class="invalid-feedback">
+                  Valid first name is required.
+                </div>
+              </div>             
+            </div>
+<!-- --------------------------DESC---------------------------------- -->
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" rows="3" name="descriptionForm"></textarea>
+            </div>
+
+<!-- ----------------------------FILE -------------------------- -->
+            <div class="input-group mb-3">                
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="imgproduit" name="urlPhotoForm">
+                    <label class="custom-file-label" for="imgproduit">Choisir un fichier</label>
+                </div>
+            </div>
+<!-- --------------------------PROIX MOY ------------------------------- -->
+            <div class="mb-3">
+              <label for="prixMoy">Prix moyen</label>
+              <input type="text" class="form-control" id="prixMoy" name="PrixMoyForm">
+            </div>
+<!-- ----------------------------FAMILLE-------------------------------- -->
+            <div class="form-group">
+                <label for="exampleFormControlSelect2">Les familles </label>
+                <select class="custom-select" name="idFamilleForm">
+                    <option selected>Selectionner une Famille</option>
+
+                    <?php foreach($allfamily as $family){
+                        echo "<option value=".$family['id'].">".$family['nomFamille']."</option>";
+                    }?>
+é
+                   
+                </select>
+            </div>
+ <!-- -------------------------------DATE CON ---------------------------- -->
+            
+            <div class="mb-3">
+              <label for="dateConception">Date de conception </label>
+              <input type="text" class="form-control" id="dateConception" name="dateConceptionForm">
+            </div>
+<!-- ------------------------------------------------------------------ -->
+     
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+<?PHP
+
+// echo $_FILES;
+$string = "41aaa";
+$int_value = (int) $string;
+echo 1
+?>
+
+
+    
+</body>
+</html>

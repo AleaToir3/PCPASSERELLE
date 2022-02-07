@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mister Cocktail</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400">
+    <link rel="stylesheet" href="www/css/cocktails.css">
+</head>
+<body class="container-fluid">
+    <nav>
+        <a href="index.php">Accueil</a>
+        <a href="ajout_cocktail.php">Ajouter un cocktail</a>
+        <h1>Mister Cocktail</h1>
+    </nav>
+
+    <h2>Ajout d'un cocktail</h2>
+    <form method="POST" action="ajout_cocktail.php" enctype="multipart/form-data">
+        <div>
+            <label>Famille</label>
+            <select name="idFamille" class="form-control">
+                <?php foreach($listFamille as $row){ ?>
+                    <option value="<?php echo $row['id'] ?>"><?php echo $row['nomFamille'] ?></option>
+                <?php } ?>
+            </select>
+        </div>
+        <div>
+            <label>Nom</label>
+            <input type="text" class="form-control" name="nom">
+        </div>
+        <div>
+            <label>description</label>
+            <textarea class="form-control" name="description"></textarea>
+        </div>
+        <div>
+            <label>Photo</label>
+            <input type="file" class="form-control" name="urlPhoto">
+        </div>
+        <div>
+            <label>Date de conception</label>
+            <input type="text" class="form-control" name="dateConception">
+        </div>
+        <div>
+            <label>Prix moyen</label>
+            <input type="text" class="form-control" name="prixMoyen">
+        </div>
+        <input type="submit">
+    </form>
+</body>
+</html>
