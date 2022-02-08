@@ -12,12 +12,12 @@
     <nav>
         <a href="index.php">Accueil</a>
         <a href="ajout_cocktail.php">Ajouter un cocktail</a>
+        <a href="back_office.php">Back-office</a>
         <h1>Mister Cocktail</h1>
     </nav>
 
     <h2>Détails d'un cocktail</h2>
     <ul>
-        <img style="float:right;max-width:250px;" src="www/images/cocktails/<?php echo $cocktail['urlPhoto'] ?>" />
         <li>Nom : <?= $cocktail['nom'] ?></li>
         <li>Famille : <?= $cocktail['nomFamille'] ?></li>
         <li>Description : <?= $cocktail['description'] ?></li>

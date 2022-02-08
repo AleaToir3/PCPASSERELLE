@@ -1,6 +1,43 @@
 <?php
 
+function ajouterCocktail($nom, $description, $urlPhoto, $anneeConception, $prixMoyen, $idFamille)
+{
+    // Connexion à la base de données avec PDO
+    $pdo = connexionMySQL();
 
+    // Préparation de la requête SQL d'insertion
+    $query = $pdo->prepare('
+        INSERT INTO Cocktail
+        (
+            nom, 
+            description, 
+            urlPhoto, 
+            dateConception, 
+            prixMoyen, 
+            idFamille
+        )
+        VALUES
+        (
+            ?, ?, ?, ?, ?, ?
+        )
+    ');
+    // La colonne id n'est pas spécifiée, la valeur est automatiquement insérée par MySQL
+
+    // Création de la date de conception au format YYYY-MM-DD à partir de l'année spécifiée
+    $dateConception = "$anneeConception-01-01";
+
+    // Exécution de la requête SQL INSERT
+    $query->execute(
+    [
+        $nom, 
+        $description, 
+        $urlPhoto, 
+        $dateConception, 
+        $prixMoyen, 
+        $idFamille
+    ]);
+    // Le tableau fourni est dans le MÊME ordre que les colonnes de la requête SQL INSERT
+}
 
 function lireCocktail($id)
 {
@@ -57,13 +94,17 @@ function listerCocktails()
     return $query->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function getAllFamilly(){
+function listerFamillesCocktails()
+{
     // Connexion à la base de données avec PDO
     $pdo = connexionMySQL();
 
     // Préparation de la requête SQL de lecture
     $query = $pdo->prepare('
-        SELECT id, nomFamille FROM famille
+        SELECT
+            id, 
+            nomFamille
+        FROM Famille
     ');
 
     // Exécution de la requête SQL SELECT
@@ -73,13 +114,38 @@ function getAllFamilly(){
     return $query->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function addCocktail($data, $photoUrl){
+function modifierCocktail($data){
+    // Connexion à la base de données avec PDO
     $pdo = connexionMySQL();
+
+    // Préparation de la requête SQL d'insertion
     $query = $pdo->prepare('
-        INSERT INTO `cocktail`(`nom`, `description`, `urlPhoto`, `dateConception`, `prixMoyen`, `idFamille`)
-        VALUES
-        (?,?,?,?,?,?)
+        UPDATE cocktail
+        SET nom = :nom, description = :description, dateConception = :dateConception, prixMoyen = :prixMoyen, idFamille = :idFamille
+        WHERE id = :id
     ');
-    $query->execute([$data['nom'], $data['description'], $photoUrl, $data['dateConception'].'-01-01', $data['prixMoyen'], $data['idFamille']]);
+
+    // Exécution de la requête SQL INSERT
+    $query->execute(
+    [
+        'nom' => $data['nom'],
+        'description' => $data['description'],
+        'dateConception' => $data['anneeConception'].'-01-01',
+        'prixMoyen' => $data['prixMoyen'],
+        'idFamille' => $data['idFamille'],
+        'id' => $data['id']
+    ]);
 }
 
+function supprimer($idCocktail){
+    // Connexion à la base de données avec PDO
+    $pdo = connexionMySQL();
+
+    // Préparation de la requête SQL d'insertion
+    $query = $pdo->prepare('
+        DELETE FROM cocktail WHERE id = ?
+    ');
+
+    // Exécution de la requête SQL INSERT
+    $query->execute([$idCocktail]);
+}

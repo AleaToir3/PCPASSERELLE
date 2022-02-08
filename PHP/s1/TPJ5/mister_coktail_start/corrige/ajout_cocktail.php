@@ -3,6 +3,7 @@
 require_once 'lib/database.php';
 require_once 'models/cocktail.php';
 
+
 // A-t'on reçu le formulaire (HTTP POST) ?
 if(empty($_POST) == false)
 {
@@ -31,7 +32,7 @@ if(empty($_POST) == false)
                  * https://www.php.net/manual/fr/function.basename.php
                  */
                 $photoFileName = basename($_FILES['urlPhoto']['name']);
-é
+
                 /*
                  * Le nom de fichier original de l'utilisateur est peut-être déjà existant sur le serveur, 
                  * on ne peut pas se permettre d'écraser quoique ce soit donc il faut créer un nouveau nom de 

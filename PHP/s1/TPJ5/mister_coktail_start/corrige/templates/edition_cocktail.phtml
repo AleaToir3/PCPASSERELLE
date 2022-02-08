@@ -16,35 +16,36 @@
         <h1>Mister Cocktail</h1>
     </nav>
 
-    <h2>Ajout d'un nouveau cocktail</h2>
-    <form action="ajout_cocktail.php" method="POST" enctype="multipart/form-data">
+    <h2>Edition d'un cocktail</h2>
+    <form action="edition_cocktail.php" method="POST">
+        <input type="hidden" name="id" value="<?= $cocktail['id'] ?>">
         <div class="form-group col-4">
             <label for="idFamille">Famille :</label>
             <select class="form-control" id="idFamille" name="idFamille">
                 <?php foreach($famillesCocktails as $famille): ?>
-                    <option value="<?= $famille['id'] ?>"><?= $famille['nomFamille'] ?></option>
+                    <?php if($famille['id'] == $cocktail['idFamille']): ?>
+                        <option value="<?= $famille['id'] ?>" selected><?= $famille['nomFamille'] ?></option>
+                    <?php else: ?>
+                        <option value="<?= $famille['id'] ?>"><?= $famille['nomFamille'] ?></option>
+                    <?php endif; ?>
                 <?php endforeach; ?>
             </select>
         </div>
         <div class="form-group col-8">
             <label for="nom">Nom :</label>
-            <input type="text" class="form-control" id="nom" name="nom" maxlength="30">
-        </div>
-        <div class="form-group col-12">
-            <label for="nom">Photo :</label>
-            <input type="file" class="form-control" id="urlPhoto" name="urlPhoto">
+            <input type="text" class="form-control" id="nom" name="nom" maxlength="30" value="<?= $cocktail['nom'] ?>">
         </div>
         <div class="form-group col-12">
             <label for="nom">Description :</label>
-            <textarea class="form-control" id="description" name="description"></textarea>
+            <textarea class="form-control" id="description" name="description"><?= $cocktail['description'] ?></textarea>
         </div>
         <div class="form-group col-3">
             <label for="nom">Année conception :</label>
-            <input type="number" class="form-control" id="anneeConception" name="anneeConception" placeholder="1900">
+            <input type="number" class="form-control" id="anneeConception" name="anneeConception" placeholder="1900" value="<?= $cocktail['anneeConception'] ?>">
         </div>
         <div class="form-group col-3">
             <label for="nom">Prix moyen :</label>
-            <input type="text" class="form-control" id="prixMoyen" name="prixMoyen">
+            <input type="text" class="form-control" id="prixMoyen" name="prixMoyen" value="<?= $cocktail['prixMoyen'] ?>">
         </div>
         <div class="form-group col-12">
             <button type="submit" class="btn btn-primary">Enregistrer</button>

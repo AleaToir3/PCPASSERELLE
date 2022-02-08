@@ -17,8 +17,8 @@ function connexionMySQL()
     $user = 'root';
 
     // Mot de passe pour se connecter
-    //$password = 'root';     // Il y a un mot de passe par défaut avec MAMP
-     $password = '';      // Il n'y a pas de mot de passe par défaut avec XAMPP et WampServer
+    // $password = 'root';     // Il y a un mot de passe par défaut avec MAMP
+    $password = '';      // Il n'y a pas de mot de passe par défaut avec XAMPP et WampServer
 
     // Connexion à la base de données en utilisant les paramètres indiqués au-dessus.
     $pdo = new PDO($dsn, $user, $password);
