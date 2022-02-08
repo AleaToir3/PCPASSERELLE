@@ -7,7 +7,7 @@
 // ---- VARIABLES ET CONSTANTES GLOBALES
 
 let currentPhoto;       // Numéro de la photo courant affichée (indice dans le tableau ci-dessous)
-let photos = document.querySelectorAll('.diaporama img');             // Tableau d'objets DOM représentant les balises <img>
+let photos = document.querySelectorAll('.big img');             // Tableau d'objets DOM représentant les balises <img>
 
 
 let btnNext = document.querySelector(".bNext");
@@ -28,14 +28,14 @@ function start() {
             diaporama = setInterval(() => {
             console.log("START",i);
             if(i < photos.length-1 || i == 0){
-                next()
+                next();
                 i++;
             }else{
                 i=0;
                 before();
             } 
         }, 2000);   
-    } else{
+    }else{
     }
 }
     
@@ -53,9 +53,9 @@ photos[0].classList.toggle('visible');
 
 btnNext.addEventListener('click',function(e) {
     console.log("NEXT",i);
-      
+
     if(i < photos.length-1 || i == 0){
-        next()
+        next();
     i++;
     }else{
         i=0;
@@ -64,10 +64,10 @@ btnNext.addEventListener('click',function(e) {
 })
 
 btnBefore.addEventListener('click',function() {
-  if(i == 0){
-    photos[i].classList.toggle('visible');
-    i = photos.length -1;
-    photos[i].classList.toggle('visible');
+    if(i == 0){
+        photos[i].classList.toggle('visible');
+        i = photos.length -1;
+        photos[i].classList.toggle('visible');
     }else{
         photos[i].classList.toggle('visible');
         photos[i-1].classList.toggle('visible');
@@ -75,7 +75,6 @@ btnBefore.addEventListener('click',function() {
     }
 })
 btnStop.addEventListener('click',function () {
-    console.log("ARRETE",i);
     clearInterval(diaporama);
     console.log("ARRETE",i);
 })
@@ -85,9 +84,8 @@ btnPlay.addEventListener('click',function () {
 })
 
 btnReset.addEventListener('click',function () {
-  photos.forEach(photo => {
+    photos.forEach(photo => {
     photos[i].classList.toggle('visible');
-
-  });
+    });
 })
 start();

@@ -1,0 +1,39 @@
+body {
+    background-color: black;
+    background-image: url('./images/moon.jpg');
+    background-position: bottom;
+    background-size: cover;
+    min-height: 100vh; /* 100% de la hauteur du navigateur */
+    overflow-y: hidden; /* suppression scrolling vertical */
+        
+}
+
+button {
+    background-color: whitesmoke;
+    border-radius: 4px;
+    border-style: none;
+    cursor: pointer;
+    padding: 1rem;
+}
+
+img.rocket {
+    /* Ecrire le CSS pour positionner la fusée au centre et en bas de l'écran */
+    position: absolute;
+    display: block;
+    left: 50%;
+    bottom: 0;
+}
+
+
+#command-panel {
+    margin: 2rem;
+}
+
+#command-panel span {
+    color: rgb(237, 11, 11);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 6rem;
+    font-weight: bold;
+    margin-left: 1rem;
+    vertical-align: middle; 
+}
