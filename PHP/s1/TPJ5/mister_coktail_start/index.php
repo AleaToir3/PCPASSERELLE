@@ -8,8 +8,4 @@ include 'models/cocktail.php';
 $resCocktails = allCocktail();
 $allfamily = Family();
 include 'templates/index.phtml';
-
-
-
-            
-
+?>
