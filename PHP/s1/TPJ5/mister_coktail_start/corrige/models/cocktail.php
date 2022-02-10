@@ -39,38 +39,6 @@ function ajouterCocktail($nom, $description, $urlPhoto, $anneeConception, $prixM
     // Le tableau fourni est dans le MÊME ordre que les colonnes de la requête SQL INSERT
 }
 
-function editerCocktail($id, $nom, $description, $anneeConception, $prixMoyen, $idFamille)
-{
-    // Connexion à la base de données avec PDO
-    $pdo = connexionMySQL();
-
-    // Préparation de la requête SQL de mise à jour
-    $query = $pdo->prepare('
-        UPDATE Cocktail SET
-            nom = ?, 
-            description = ?, 
-            dateConception = ?, 
-            prixMoyen = ?, 
-            idFamille = ?
-        WHERE id = ?
-    ');
-
-    // Création de la date de conception au format YYYY-MM-DD à partir de l'année spécifiée
-    $dateConception = "$anneeConception-01-01";
-
-    // Exécution de la requête SQL INSERT
-    $query->execute(
-    [
-        $nom, 
-        $description, 
-        $dateConception, 
-        $prixMoyen, 
-        $idFamille, 
-        $id
-    ]);
-    // Le tableau fourni est dans le MÊME ordre que les colonnes de la requête SQL UPDATE
-}
-
 function lireCocktail($id)
 {
     // Connexion à la base de données avec PDO
@@ -144,20 +112,4 @@ function listerFamillesCocktails()
 
     // Renvoie les données sous la forme d'un tableau associatif (clé = nom colonne SQL)
     return $query->fetchAll(PDO::FETCH_ASSOC);
-}
-
-function supprimerCocktail($id)
-{
-    // Connexion à la base de données avec PDO
-    $pdo = connexionMySQL();
-
-    // Préparation de la requête SQL de suppression
-    $query = $pdo->prepare('
-        DELETE FROM Cocktail
-        WHERE id = ?
-    ');
-
-    // Exécution de la requête SQL DELETE
-    $query->execute([ $id ]);
-    // Même s'il n'y a qu'un paramètre dans la requête, il faut fournir un tableau pour la valeur
 }

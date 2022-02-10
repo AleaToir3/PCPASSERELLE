@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="www/css/cocktails.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Back Office</title>
+</head>
+<body class="container-fluid">
+    <nav>
+        <a href="index.php">Accueil</a>
+        <h1>Back Office</h1>
+
+        <table class="table table-striped ">
+<thead>
+    <tr>
+        <th>#</th>
+        <th>Nom</th>
+        <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+    <?php foreach ($allCocktails as $cocktail){ ?>
+    <tr>
+        <td><?php echo $cocktail['id']?></td>
+        <td><?php echo $cocktail['nom']?></td>
+        <td><?php echo $cocktail['description']?></td>
+        <td><?php ?> <a href="change_cocktail.php?id=<?php echo $cocktail['id']?>">  Modifier </a> </td>
+        <td><?php ?> <a href="sup_cocktail.php?id=<?php echo $cocktail['id']?>">  Supprimer </a> </td>
+    </tr>
+ <?php }?>
+</tbody>
+
+        </table>
+    </nav>
+
+
+    <a  id="allo">confirm</a>
+<script>
+
+    let btn = document.getElementById('allo');
+
+    btn.addEventListener('click',()=>{
+        let res = window.confirm('Etes vous sur de vouloir supprimer le Cocktail ?')
+        console.log(res);   
+    })
+        // document.location.href="sup_cocktail.php"; 
+    
+</script>
+        
+</body>

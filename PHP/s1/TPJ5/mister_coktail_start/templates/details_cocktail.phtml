@@ -25,16 +25,12 @@
         <li>Année de conception<?= $resCocktail['dateConception'];?></li>
         <li>Prix <?= $resCocktail['prixMoyen'];?></li>
     </ul>
-    
+    <h2>La liste des ingrédients </h2>
+    <ul>
+        <?php foreach($ingretients as $ingredient){?>
+            <li> <?= $ingredient['nom'];?></li> <?php } ?>
+    </ul>
 
-
-
-
-
-
-
-
-
-    
+   
 </body>
 </html>

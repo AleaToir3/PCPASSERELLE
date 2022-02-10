@@ -1,107 +1,46 @@
 <?php
+    require_once 'lib/database.php';
+    require_once 'models/cocktail.php';
 
-require_once 'lib/database.php';
-require_once 'models/cocktail.php';
+    $tabAutoryse = ['image/jpeg', 'image/png', 'image/gif'];
 
+    if(isset($_POST) && !empty($_POST)){
+        //Ajout de l'image ($_FILES)
+        //1 - verifier la présence d'un fichier dans le temp
+        $photoUrl = "";
+        if(isset($_FILES) && !empty($_FILES)){
+            $name = $_FILES['urlPhoto']['name'];
+            $type = $_FILES['urlPhoto']['type'];
+            $tmp_name = $_FILES['urlPhoto']['tmp_name'];
+            $error = $_FILES['urlPhoto']['error'];
+            $size = $_FILES['urlPhoto']['size'];
 
-// A-t'on reçu le formulaire (HTTP POST) ?
-if(empty($_POST) == false)
-{
-    // OUI, traitement du formulaire d'ajout de cocktail
+            //2 - verifier qu'il n'y a pas d'erreur de transfert
+            if($error == 0){
+                //verification de la taille du fichier
+                if($size < 2097152){
+                    //3 - vérfier le type de fichier (type mime)
+                    if(in_array($type, $tabAutoryse)){
+                        // Si 1, 2 et 3 se sont bien passés alors j'upload la photo sur le serveur
+                        move_uploaded_file($tmp_name, __DIR__.'/www/images/cocktails/'.$name);
+                        $photoUrl = $name;
+                    }else{
+                        die('le fichier n\'est pas un jpg');
+                    }
 
-    /*
-     * Partie 1 : traitement de l'upload de la photo du cocktail
-     */
-
-    $urlPhoto = null;
-    if(array_key_exists('urlPhoto', $_FILES) == true)
-    {
-        // Est-ce que l'upload du fichier s'est bien passé ?
-        if($_FILES['urlPhoto']['error'] == UPLOAD_ERR_OK)
-        {
-            // OUI, est-ce que le fichier uploadé est bien une image JPEG ?
-            if($_FILES['urlPhoto']['type'] == 'image/jpeg')
-            {
-                /*
-                 * OUI, déplacement du fichier uploadé d'un répertoire temporaire du serveur vers son emplacement
-                 * final, le répertoire des images de l'application
-                 */
-
-                 /*
-                 * Utilisation de la fonction basename() pour récupérer de manière sûre juste un nom de fichier :
-                 * https://www.php.net/manual/fr/function.basename.php
-                 */
-                $photoFileName = basename($_FILES['urlPhoto']['name']);
-
-                /*
-                 * Le nom de fichier original de l'utilisateur est peut-être déjà existant sur le serveur, 
-                 * on ne peut pas se permettre d'écraser quoique ce soit donc il faut créer un nouveau nom de 
-                 * fichier final.
-                 *
-                 * Un moyen simple est de se servir de la fonction uniqid() qui génère des valeurs uniques en 
-                 * se basant sur la date et l'heure courante :
-                 * https://www.php.net/manual/fr/function.uniqid
-                 */
-                $photoFileName = uniqid() . "-$photoFileName";
-
-                /*
-                 * Construction de la chaîne contenant la destination finale du fichier uploadé :
-                 * - Utilisation de la constante magique __DIR__ pour récupérer le répertoire exact (on
-                 *   parle de chemin absolu) du fichier PHP dans lequel nous sommes :
-                 *   https://www.php.net/manual/fr/language.constants.predefined.php
-                 * - Concaténation avec le répertoires des images de l'application
-                 * - Concaténation avec le nom de fichier final
-                 */
-                $destination = __DIR__ . "/www/images/cocktails/$photoFileName";
-
-                // Déplacement sur le serveur du fichier uploadé vers sa destination finale.
-                if(move_uploaded_file($_FILES['urlPhoto']['tmp_name'], $destination) == true)
-                {
-                    /*
-                     * L'upload s'est totalement bien passé, stockage du nom de fichier final
-                     * en tant qu'URL de la photo dans la base de données.
-                     */
-                    $urlPhoto = $photoFileName;
+                }else{
+                    die('fichier trop volumineux');
                 }
-                // https://www.php.net/manual/fr/function.move-uploaded-file.php
+            }else{
+                die('erreur lors de l envoi du fichier');
             }
-
-            /*
-             * Liste des codes d'erreurs possibles pour l'upload :
-             * https://www.php.net/manual/fr/features.file-upload.errors.php
-             */
         }
 
-        /*
-         * Documentation de la variable $_FILES :
-         * https://www.php.net/manual/fr/features.file-upload.post-method.php
-         */
+        addCocktail($_POST, $photoUrl);
+
+        header("Location:index.php");
+
+    }else{
+        $listFamille = getAllFamilly();
+        include 'templates/ajout_cocktail.phtml';
     }
-
-
-    /*
-     * Partie 2 : enregistrement du cocktail en base de données
-     */
-
-    ajouterCocktail(
-        $_POST['nom'],
-        $_POST['description'],
-        $urlPhoto,
-        $_POST['anneeConception'],
-        $_POST['prixMoyen'], 
-        $_POST['idFamille']         // Valeur de l'<option> sélectionnée
-    );
-    // Les données du formulaire sont fournies dans l'ordre des arguments de la fonction
-
-    // Redirection vers la page d'accueil (Post-Redirect-Get)
-    header('Location: index.php');
-}
-else
-{
-    // NON, affichage du template de formulaire d'ajout de cocktail
-
-    // Récupération de toutes les familles de cocktails stockées en base de données
-    $famillesCocktails = listerFamillesCocktails();
-
-    include 'templates/ajout_cocktail.phtml';
-}

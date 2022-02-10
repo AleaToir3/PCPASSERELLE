@@ -14,18 +14,20 @@
 <body class="container-fluid">
     <nav>
         <a href="index.php">Accueil</a>
-        <h1>Mister Cocktail</h1>
+        <h1>Modification d'un cocktail</h1>
     </nav>
 
     <div class="container">  
         <div class="col-md-8 order-md-1">
           <h4 class="mb-3">Ajoute de cocktail</h4>
           <form class="needs-validation" method="POST" enctype="multipart/form-data">
+          <input name="id" type="hidden" value="<?php echo $onecock['idCocktail']?>">
+
 <!-- -------------------------NOM--------------------------------- -->
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="nom"> Nom</label>
-                <input type="text" class="form-control" id="nom" name="nomForm" required>
+                <input type="text" class="form-control" id="nom" name="nomForm" value="<?php echo $onecock['nom'] ?>" required>
                 <div class="invalid-feedback">
                   Valid first name is required.
                 </div>
@@ -34,20 +36,21 @@
 <!-- --------------------------DESC---------------------------------- -->
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea class="form-control" id="description" rows="3" name="descriptionForm"></textarea>
+                <textarea class="form-control" id="description" rows="3" name="descriptionForm" ><?php echo $onecock['description']?>
+                </textarea>
             </div>
 
 <!-- ----------------------------FILE -------------------------- -->
             <div class="input-group mb-3">                
                 <div class="custom-file">
                     <input type="file" class="custom-file-input" id="imgproduit" name="urlPhotoForm">
-                    <label class="custom-file-label" for="imgproduit">Choisir un fichier</label>
+                    <label class="custom-file-label" for="imgproduit"><?php echo $onecock['urlPhoto']?></label>
                 </div>
             </div>
 <!-- --------------------------PROIX MOY ------------------------------- -->
             <div class="mb-3">
               <label for="prixMoy">Prix moyen</label>
-              <input type="text" class="form-control" id="prixMoy" name="PrixMoyForm">
+              <input type="text" class="form-control" id="prixMoy" name="PrixMoyForm" value="<?php echo $onecock['prixMoyen']?>"
             </div>
 <!-- ----------------------------FAMILLE-------------------------------- -->
             <div class="form-group">
@@ -56,7 +59,11 @@
                     <option selected>Selectionner une Famille</option>
 
                     <?php foreach($allfamily as $family){
+                        if($family['id']==$onecock['idFamille']){
+                            echo "<option selected='selected' value=".$family['id'].">".$family['nomFamille']."</option>";
+                        }else{
                         echo "<option value=".$family['id'].">".$family['nomFamille']."</option>";
+                        }
                     }?>
 
                    
@@ -66,30 +73,35 @@
             
             <div class="mb-3">
               <label for="dateConception">Date de conception </label>
-              <input type="text" class="form-control" id="dateConception" name="dateConceptionForm">
+              <input type="text" class="form-control" id="dateConception" name="dateConceptionForm" value="<?php echo substr($onecock['dateConception'],0,4)?>">
             </div>
+
+
 <!-- -------------------------- INGREDIENTS ------------------------------ -->
 <div>
 
-  <?php foreach($allIngredients as $ingredient){ ?>
-    <label> 
-    <input type="checkbox" name="ingredients[]" value="<?php echo $ingredient['id']?>"> <?= $ingredient['nom']?>
-    </label><br>
-  <?php }?>
-  
-</div>
+<?php foreach($allIngredients as $ingredient){ ?>
+  <label> 
+  <input type="checkbox" name="ingredients[]" value="<?php echo $ingredient['id']?>" <?php ?> > <?= $ingredient['nom']?>
+  </label><br>
+<?php }?>
 
+</div>
 <!-- ------------------------------------------------------------------ -->
      
             <hr class="mb-4">
             <button class="btn btn-primary btn-lg btn-block" type="submit">Valider</button>
+
           </form>
         </div>
       </div>
-<pre>
 
-<!-- <?php var_dump($_POST)?> -->
-</pre>
-    </div>    
+    </div>
+
+<?php
+
+?>
+
+    
 </body>
 </html>
