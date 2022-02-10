@@ -11,11 +11,13 @@ smallHand.style.transform = "translate3d(-50%,-50%,0)rotate(90deg)"
 
 let start = ()=>{
     setInterval(() => {
-    dates = new Date().getSeconds();
-    secondHand.style.transform = `translate3d(-50%,-50%,0)rotate(${(6*dates)}deg)`
-
-    console.log(dates)
-
+    dates = new Date();
+    secondHand.style.transform = `translate3d(-50%,-50%,0)rotate(${(6*dates.getSeconds())}deg)`;
+    smallHand.style.transform = `translate3d(-50%,-50%,0)rotate(${(30*dates.getHours())}deg)`;
+    bigHand.style.transform = `translate3d(-50%,-50%,0)rotate(${(6*dates.getMinutes())}deg)`;
     }, 1000);
 }
 start();
+// 360 / 60 = 6
+// 360 / 12 = 6
+// 360 / 60 = 6

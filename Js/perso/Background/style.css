@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+}
+body{
+   margin: 0;
+    position: relative;
+}
+
+button{
+    background: rgb(30, 200, 200);
+    color: #fff;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid white ;
+    font-weight: 900;
+    position: absolute;
+    top: 45vh;
+    left: 045vw;
+    user-select: none;
+}
+
+button:hover{
+    background: rgb(30, 150, 150);
+}
+button:active{
+    background: rgb(30, 100, 100);
+}

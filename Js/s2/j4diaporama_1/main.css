@@ -1,4 +1,4 @@
-.diaporama {
+.diaporama{
     height: calc(75vw * 1280 / 1920);
     width: 75vw;
     max-height: calc(960px * 1280 / 1920);
@@ -11,7 +11,7 @@
     position: relative;
 }
 
-.diaporama img {
+.diaporama .big img {
     width: 100%;
     position: absolute;
     top: 0;
@@ -28,4 +28,9 @@
 .btnbtn{
 text-align: center;
 margin-top: 1rem;
+}
+.minidiapo img{
+    width: 200px;
+    z-index: 1;
+    position:relative
 }
