@@ -5,8 +5,8 @@
 
 function bipbip(){
     $user = 'root';
-    $pass = 'root';
-    $bdd = new PDO('mysql:host=localhost:8889;dbname=cocktail', $user, $pass);
+    $pass = '';
+    $bdd = new PDO('mysql:host=localhost;charset=utf8;dbname=cocktail', $user, $pass);
     return $bdd;
 }
     // Création d'une fonction de connexion à MySQL.
