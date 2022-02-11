@@ -110,8 +110,7 @@ button {
     font-size: larger;
     border-radius: 1rem;
     border: 1px rgb(172, 162, 162) solid;
-    padding: 0.25rem 1rem ;
-    margin: 2rem;
+    padding: 0.5rem 1rem ;
     background: rgb(238, 222, 118);
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
@@ -216,7 +215,7 @@ li{
     flex-flow: row wrap;
     margin: 1rem;
 }
-.lol{
+.cardContact{
     border: black 1px solid;
     padding: 1rem;
     margin: 1rem;

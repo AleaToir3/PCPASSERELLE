@@ -11,6 +11,9 @@ let vtel = document.getElementById('Telephone');
 let vemail = document.getElementById('Email');
 let btn = document.getElementById('btn');
 let fofo = document.getElementById('fofo');
+let i = 0 ;
+let ajout = true
+let valueid = '';
 let tab = [
     {
         nom:"abdel",
@@ -26,78 +29,109 @@ let tab = [
     }
 ];
 
-
-function test(){
-    
-    let lol = window.localStorage.getItem('tab')
-    if(lol == null){
-
-        // tu me SET !
-        window.localStorage.setItem('tab',JSON.stringify(tab));
-
-        console.log("c vide ")
-    }else{
-        console.log("c full ")
-
-    }
-}
 // --- Fonctions du carnet d'adresses
-test()
-
-tab = JSON.parse(window.localStorage.getItem('tab'));
-
-con.innerHTML = ''
-tab.forEach(e => {
-    addcontacts(e);})
-
+tab = RestoreStorage()
+      affichage()
 
 //    JSON.parse(window.localStorage.getItem('tab'));
     // window.localStorage.setItem('tab',JSON.stringify(tab));
 
 
-    
-btn.addEventListener("click",(e)=>{  
 
-
-    tab.push({
+btn.addEventListener("click",(e)=>{
+    if(ajout){
+          tab.push({
         nom:vnom.value,
         prenom:vprenom.value,
         telephone:vtel.value,
         email:vemail.value
     })
-    // clearinput();
-    // fofo.reset();
-    con.innerHTML = ''
-    tab.forEach(e => {
-        addcontacts(e)
-        let sup = document.querySelectorAll('dede')
-        console.log(e)
-        ;})
-   window.localStorage.setItem('tab',JSON.stringify(tab));
-
- 
+    }else{
+        tab[valueid] = { 
+            nom:vnom.value,
+            prenom:vprenom.value,
+            telephone:vtel.value,
+            email:vemail.value}
+         
+        ajout= true
+    }
+  
+affichage()
 });
 
-function clearinput(){
-    vnom.value = '';
-    vprenom.value = '';
-    vtel.value = '';
-    vemail.value = '';
-    // on peux faire aussi un reset() !!! SUR LES BALISE <FORM></FORM>
+
+
+function RestoreStorage(){    
+    let tab = window.localStorage.getItem('tab')
+    if(tab == null)tab = window.localStorage.setItem('tab',JSON.stringify(tab))
+    return tab = JSON.parse(window.localStorage.getItem('tab'));
 }
 
+
+// function clearinput(){
+//     vnom.value = '';
+//     vprenom.value = '';
+//     vtel.value = '';
+
+//     vemail.value = '';
+//     // on peux faire aussi un reset() !!! SUR LES BALISE <FORM></FORM>
+// }
+
 function addcontacts(data) {
-    let  con = document.getElementById('con')
-     con.innerHTML += ` 
-                <div class="lol">
+    let  con = document.getElementById('con');
+     con.innerHTML += `
+                <div class="cardContact" data-set=${i} >
                     <p>${data.nom}  ${data.prenom}</p>
                     <p>${data.telephone}</p>
                     <p>${data.email}</p>
-                    <button id="dede" type="button">supprimer</button>
+                    <button class="btnSupCard" class type="button"data-set="${i}" >supprimer</button>
+                    <button class="btnEditCard" type="button" data-set="${i}">Editer</button>
+                </div>
                     `
+                    i++;
+                    let btnDelete = document.querySelectorAll('.btnSupCard');
+                    let btnEditCard = document.querySelectorAll('.btnEditCard');
+
+
+                    btnDelete.forEach(e => {
+                        e.addEventListener('click',deleteCard)                        
+                    });
+                    btnEditCard.forEach(e => {
+                        e.addEventListener('click',editCard)                        
+                    });
+                                        
+                    window.localStorage.setItem('tab',JSON.stringify(tab))
+
 }
 
+function affichage() {
+    con.innerHTML = ''
+    tab.forEach(e => {
+        addcontacts(e)
+        ;})
+    i=0;
+}
+function deleteCard(d){
+let rm = d.currentTarget.dataset.set;
+console.log(rm)
+tab.splice(rm,1)
+window.localStorage.setItem('tab',JSON.stringify(tab))
+affichage()
+}
 
+function editCard(d){
+    ajout= false
+    let rm = d.currentTarget.dataset.set;
+
+    vnom.value = tab[rm].nom
+    vprenom.value = tab[rm].prenom
+    vtel.value = tab[rm].telephone
+    vemail.value = tab[rm].email
+    valueid = rm
+    window.localStorage.setItem('tab',JSON.stringify(tab))
+    affichage()
+    }
+    
 
 
 
