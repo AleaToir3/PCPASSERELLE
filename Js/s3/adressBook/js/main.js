@@ -27,25 +27,55 @@ let tab = [
 ];
 
 
+function test(){
+    
+    let lol = window.localStorage.getItem('tab')
+    if(lol == null){
 
+        // tu me SET !
+        window.localStorage.setItem('tab',JSON.stringify(tab));
 
+        console.log("c vide ")
+    }else{
+        console.log("c full ")
 
-
+    }
+}
 // --- Fonctions du carnet d'adresses
+test()
 
-btn.addEventListener("click",(e)=>{   
+tab = JSON.parse(window.localStorage.getItem('tab'));
 
-tab.push({
-    nom:vnom.value,
-    prenom:vprenom.value,
-    telephone:vtel.value,
-    email:vemail.value
-})
-// clearinput();
-// fofo.reset();
 con.innerHTML = ''
 tab.forEach(e => {
     addcontacts(e);})
+
+
+//    JSON.parse(window.localStorage.getItem('tab'));
+    // window.localStorage.setItem('tab',JSON.stringify(tab));
+
+
+    
+btn.addEventListener("click",(e)=>{  
+
+
+    tab.push({
+        nom:vnom.value,
+        prenom:vprenom.value,
+        telephone:vtel.value,
+        email:vemail.value
+    })
+    // clearinput();
+    // fofo.reset();
+    con.innerHTML = ''
+    tab.forEach(e => {
+        addcontacts(e)
+        let sup = document.querySelectorAll('dede')
+        console.log(e)
+        ;})
+   window.localStorage.setItem('tab',JSON.stringify(tab));
+
+ 
 });
 
 function clearinput(){
@@ -63,8 +93,8 @@ function addcontacts(data) {
                     <p>${data.nom}  ${data.prenom}</p>
                     <p>${data.telephone}</p>
                     <p>${data.email}</p>
-                </div>        
-    `
+                    <button id="dede" type="button">supprimer</button>
+                    `
 }
 
 
@@ -73,17 +103,19 @@ function addcontacts(data) {
 
 
 
-function lolo() {
-    //   facon :  1  -- 
-    //     window.localStorage.setItem('monChat', 'Tom');
-    //   STOCKAGE EN JSON POUR TRAVAILLER LA DONNEE APRES
-       window.localStorage.setItem('allo',JSON.stringify(tab));
+// function lolo() {
+//     //   facon :  1  -- 
+//     //     window.localStorage.setItem('monChat', 'Tom');
+//     //   STOCKAGE EN JSON POUR TRAVAILLER LA DONNEE APRES
+    
+//     let COUCOU = JSON.parse(window.localStorage.getItem('tab'));
+//          window.localStorage.setItem('tab',JSON.stringify(tab));
+//         return COUCOU
 
-        let COUCOU = JSON.parse(window.localStorage.getItem('allo'));
-        return COUCOU
-}
+
+// }
 
 
-lolo();
+// lolo();
 
 
