@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 
 // Récupération de tous les cocktails stockés en base de données
