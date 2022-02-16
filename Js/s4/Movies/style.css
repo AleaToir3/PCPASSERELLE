@@ -1,0 +1,15 @@
+#demo-1 {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+  
+.col a {
+      text-decoration: none;
+      color: inherit;
+}
+.col a:hover {
+    color: inherit;
+    cursor: inherit;
+}
