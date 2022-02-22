@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Passerelle - Zelda en javacript Objet</title>
+</head>
+<body>
+    <h1>Zelda en javascript Objet</h1>
+    <h2>Mouvement</h2>
+    <p>Vous pouvez maintenant demander à link de bouger réellement à l'écran.</p>
+    <p>Ceci se fait en 2 temps :</p>
+    <h3>1 - Modifier les propriétés this.x et this.y de link</h3>
+    <p>Ces deux propriétés doivent être initialisées à 0. Et initialisez "deltaMove" à 8 par exemple</p>
+    <p>Dans chacune de vos méthodes "move...()" il suffit de modifier soit la propriété x, soit la propriété y (selon la direction choisie), soit en y ajoutant, soit en y enlevant deltaMove&nbsp;</p>
+    <ul>
+        <li>up :  -this.deltaMove sur y</li>
+        <li>down :  +this.deltaMove sur y</li>
+        <li>left : -this.deltaMove sur x</li>
+        <li>right : +this.deltaMove sur x</li>
+    </ul>
+    <h3>2 - Appliquer le mouvement</h3>
+    <p>De retour dans votre méthode refresh, il suffit d'appliquer la nouvelle position grâce à ".style.top" et ".style.left" (pensez à ajouter "px" à vos valeurs)</p>
+</body>
+</html>

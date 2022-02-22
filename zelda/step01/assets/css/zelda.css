@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    width: 3840;
+    height: 100%;
+}
+#map{
+    background-image:url('/step00/assets/img/bg.png');
+    background-size: 3840px;
+    background-position: cover;
+    height: 100%;
+    width: 100%;
+    position: relative;
+ }
+ #link{
+    background-image:url('/step00/assets/img/link.png');
+    background-position: cover;
+    height: 65px;
+    width:60px;
+    position: absolute;
+ }

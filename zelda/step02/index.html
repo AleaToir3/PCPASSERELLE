@@ -1,0 +1,77 @@
+&<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Passerelle - Zelda en javacript Objet</title>
+</head>
+<body>
+    <h1>Zelda en javascript Objet</h1>
+    <p>Vous allez pouvoir commencer vos scripts.</p>
+    <h2>L'objet link</h2>
+    <p>Dans le fichier link, vous allez comencer par créer un objet qui représentera votre personnage&nbsp;:</p>
+    <pre><code>
+        var link = new Object();
+    </code></pre>
+    <p>A partir de là, vous pouvez ajouter des propriétés à votre objet en écrivant simplement quelque chose comme&nbsp;:</p>
+    <pre><code>
+        link.propriete = valeur;
+    </code></pre> 
+    <p>Ou même lui ajouter des méthodes en écrivant quelque chose comme&nbsp;:</p>   
+    <pre><code>
+        link.methode = function(){...};
+    </code></pre> 
+    <p>En remplacant "propriete" et "methode" par le nom que vous voulez donner à votre propriété ou méthode.</p>
+    <p>Pour link vous allez avoir besoin des propriétés suivantes&nbsp;:</p>
+    <ul>
+        <li><strong>x</strong>&nbsp;: position sur l'axe x de link dans le document</li>
+        <li><strong>y</strong>&nbsp;: position sur l'axe y de link dans le document</li>
+        <li><strong>deltaMove</strong>&nbsp;: distance parcouru par link entre deux images (si il marche)</li>
+        <li><strong>row</strong>&nbsp;: ligne actuellement utilisée dans le spritesheet</li>
+        <li><strong>col</strong>&nbsp;: colonne actuellement utilisée dans le spritesheet</li>
+        <li><strong>direction</strong>&nbsp;: direction dans laquelle link regarde (permettra de définir la ligne ci-dessus).</li>
+        <li><strong>isWalking</strong>&nbsp;: est-ce link marche ou pas ? (oui si l'utilisateur presse une touche du clavier)</li>
+    </ul>
+    <p>Et il vous faudra les méthodes suivantes :</p>
+    <ul>
+        <li><strong>refresh()&nbsp;: affiche l'image suivante de link</strong></li>
+        <li><strong>moveLeft()&nbsp;: demande à link de bouger vers la gauche</strong></li>
+        <li><strong>moveRight()&nbsp;: demande à link de bouger vers la droite</strong></li>
+        <li><strong>moveUp()&nbsp;: demande à link de bouger vers le haut</strong></li>
+        <li><strong>moveDown()&nbsp;: demande à link de bouger vers le bas</strong></li>
+        <li><strong>stop()&nbsp;: demande à link de s'arreter</strong></li>
+    </ul>
+    <p>Une fois ces méthodes créées, contentez vous, pour le moment, de leur demander de faire des <code>console.log('Votre description')</code>, afin de pouvoir les tester.</p>
+    <h2>Le moteur de jeu "game.js"</h2>
+    <p>C'est le seul vrai morceau de développement de cette étape. Vous allez devoir créer déjà le moteur de jeu et lui demander d'exploiter les méthodes que vous avez créé précédemment.</p>
+    <p>Le moteur s'articule uniquement autour de trois élémentss de code :</p>
+    <ul>
+        <li>Un timer (setInterval ?) qui demande à link d'afficher son image suivante (méthode refresh)</li>
+        <li>Un évènement "keydown", qui capte la touche sur laquelle on appuit et demande à link de bouger dans la bonne direction en fonction de la touche.</li>
+        <li>Un évènement "keyup", qui demande à link d'arrêter de bouger.</li>
+    </ul>
+    <h3>Le timer</h3>
+    <p>Il doit lancer une fonction toutes les 100 millisecondes (vous pouvez changer cette valeur) qui elle-même lance la méthode "refresh" de link. Mieux vaut passer par une fonction intermédiaire, car il y'aura d'autres choses à faire ici plus tard.</p>
+    <h3>L'évènement "keydown"</h3>
+    <p>Il doit lancer une fonction (nommez-la comme bon vous semble, qui récupère l'évènement "evt", et regarde dans cet évènement la propriétés "key". 
+        Celle-ci contient le nom de la touche sur laquele on a appuyé. Il est alors facile de demander à link de bouger dans la bonne direction.</p>
+    <p>Exemple :</p>
+    <pre><code>
+        function keyDown(evt) {
+
+            switch (evt.key) {
+                case '???' :
+                    link.moveRight();
+                ...
+            }
+        }
+    </code></pre>
+    <p>A vous de trouver les bons codes ici, regardez la doc.</p>
+    <h3>L'évènement "keyup"</h3>
+    <p>Lui doit lancer une autre fonction qui elle même se contente de demander à link de s'arrêter grâce à sa méthode "stop()".</p>
+    <h2>Résultat</h2>
+    <p>Si tout est bien réalisé, vous devriez avoir des logs affichant toutes les actions de votre personnage, comme suit&nbsp;:</p>
+    <img src="assets/result/result.png" alt="Logs de link">
+    <p>L'ordre n'a aucune importance car il dépend de votre timer et de vos interactions avec le clavier</p>
+</body>
+</html>

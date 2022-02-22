@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Passerelle - Zelda en javacript Objet</title>
+</head>
+<body>
+    <h1>Zelda en javascript Objet</h1>
+    <p>Dans cette première étape, vous allez déjà commencer par créer vos fichiers et les relier à votre document html.</p>
+    <p>Il faudra également créer quelques règles CSS de base.</p>
+    <h2>Créer les fichiers</h2>
+    <p>Il vous faut quatre fichiers&nbsp;:</p>
+    <ul>
+        <li>1 fichier css, pour mettre les quelques règles nécessaires,</li>
+        <li>1 fichier js qui contiendra tout le code relatif au personnage, appelons-le <em>link.js</em>,</li>
+        <li>1 fichier js qui contiendra tout le code relatif à la carte affichée en fond, appelons-le <em>map.js</em>,</li>
+        <li>1 fichier js pour le moteur de jeu, appelons-le <em>game.js</em>.</li>
+    </ul>
+    <p>Créez vos fichiers dans le dossier assets, et liez-les au document <em>zelda.html</em>. Il faut les lier dans l'ordre suivant : map.js, link.js puis game.js.</p>
+    <h2>Créer le CSS</h2>
+    <p>En étudiant le html du fichier <em>zelda.html</em>, vous remarquerez que celui-ci ne contient que deux divs&nbsp;:</p>
+    <ul>
+        <li>Une première nommée <em>map</em>,</li>
+        <li>Une deuxième nommée <em>link</em> et imbriquée dans la première.</li>
+    </ul>
+    <p>Ces deux divs vont représenter respectivement la carte (le background) du jeu et le personnage principale Link. Il n'y aura besoin de rien d'autre.</p>
+    <p>Il faut maintenant écrire les règles CSS de ces deux divs.</p>
+    <h3>Le background</h3>
+    <p>Pour cette div, c'est assez simple, vous voulez qu'elle recouvre tout l'écran (largeur et hauteur à 100% ?) et qu'elle utilise l'image <em>bg.png</em> comme image de fond.</p>
+    <p>Il y a quelques petites subtilités quand même.</p>
+    <p>Tout d'abord, pour des raisons d'optimisation, les dimensions de l'image ont été divisées par 2 par rapport à ce qu'elles devraient réellement faire. Si vous regardez les propriétés de l'image, vous verrez que celle-ci fait 1920px de largeur. Or, elle devrait en faire 3840.</p>
+    <p>Pour régler cela, utilisez la propriété css <code>background-size</code> pour forcer la largeur à 3840 pixels.</p>
+    <p>Deuxièmement, le body d'une page HTML ayant toujours une marge interne, ce dont nous ne voulons pas ici. Pensez bien à écrire une règle CSS qui fasse un reset de toutes les marges de votre document. De plus il faudra également forcer la hauteur de votre html et de votre body, sans quoi, sans contenu, leur hauteur sera de 0 pixels.</p>
+    <p>Vous devez donc créez deux règles juste pour le background :</p>
+    <ul>
+        <li>1 pour faire un reset des marges internes et externes de votre document et forcer la hauteur du html et du body.</li>
+        <li>1 pour la div <code>#map</code>, qui dit&nbsp;:
+            <ul>
+                <li>qu'elle occuper l'écran,</li>
+                <li>qu'elle utilise l'image <em>bg.png</em> comme fond,</li>
+                <li>que son <code>background-size</code> est de 3840 pixels.</li>
+            </ul>
+        </li>
+    </ul>
+    <h3>Le personnage link</h3>
+    <p>Avant de commencer le CSS de link, regardez l'image <em>link.png</em> qui le représente. Vous constaterez que c'est en fait un ensemble de petites images assemblées en lignes et colonnes. On appelle ceci une <em>spritesheet</em>, une feuille de <em>sprites</em>.</p>
+    <p>Elle regroupe absolument toutes les représentations de notre personnage.</p>
+    <p>Ici, notre personnage ne peut que se déplacer, le nombre d'images est donc limité, mais dans un jeu plus complexe, il existerait des dizaines, voire des centaines d'images du personnage pour toutes les étapes, de toutes les actions qu'il peut réaliser et sous tous les angles de caméra possible.</p>
+    <p>Dans notre cas, notre personnage ne peut faire que deux choses&nbsp;: </p>
+    <ul>
+        <li>Rester immobile</li>
+        <li>Marcher</li>
+    </ul>
+    <p>Mais, il peut faire ces deux choses dans les quatres directions&nbsp;: haut, bas, gauche et doite. Ce qui nous fait déjà 8 actions distinctes.</p>
+    <p>De plus, une seule de ses actions (par exemple se déplacer vers la droite), est en fait la somme de plusieurs images qui se succèdent.</p>
+    <img src="assets/img/link.png" alt="Spritesheet de link">
+    <p>Notre <em>spritesheet</em> est donc organisée en lignes et colonnes comme suit&nbsp;:</p>
+    <ul>
+        <li>1<sup>ère</sup> ligne : toutes les étapes lorsque le personnage est à l'arrêt vers le bas.</li>
+        <li>2<sup>ème</sup> ligne : toutes les étapes lorsque le personnage est à l'arrêt vers la gauche.</li>
+        <li>3<sup>ème</sup> ligne : toutes les étapes lorsque le personnage est à l'arrêt vers le haut.</li>
+        <li>4<sup>ème</sup> ligne : toutes les étapes lorsque le personnage est à l'arrêt vers la droite.</li>
+        <li>5<sup>ème</sup> ligne : toutes les étapes lorsque le personnage marche vers le bas.</li>
+        <li>6<sup>ème</sup> ligne : toutes les étapes lorsque le personnage marche vers la gauche.</li>
+        <li>7<sup>ème</sup> ligne : toutes les étapes lorsque le personnage marche vers le haut.</li>
+        <li>8<sup>ème</sup> ligne : toutes les étapes lorsque le personnage marche vers la droite.</li>
+    </ul>
+    <p>Vous avez peut-être déjà remarqué que si les images changent tout le temps lorsque le personnage marche, elles changent très peu, voire pas du tout, lorsqu'il est immobile. </p>
+    <p>En effet, lorsqu'il est à l'arrêt, notre personnage, ne fait rien, ou presque. Il se contente juste de cligner des yeux de temps en temps, ce qui est représenté - lorsque ses yeux sont visibles - sur les deux dernières images. Par conséquent, lorsque le personnage est immobile, notre moteur de jeu, se contentera d'afficher presque toujours les mêmes images, alors que lorsqu'il marche, ces images changeront à intervalle régulier pour donner l'illusion du mouvement (notez que l'on a utilisé le terme d'intervale ici, c'est un indice important non ?).</p>
+    <p>Donc puisque notre personnage est en fait la somme de plusieurs petites images affichées les unes après les autres mais que jamais deux images ne sont affiché en même temps, il est facile de déterminer la taille de la div du personnage, c'est en fait la taille d'une seule de ces petites images.</p>
+    <p>La <em>spritesheet</em> totale fait 600 pixels par 520 pixels. Et nous avons 8 lignes par 10 colonnes.</p>
+    <p>Une seule image fait donc :</p>
+    <ul>
+        <li>600/10 soit 60 pixels de large.</li>
+        <li>520/8 soit 65 pixels de haut.</li>
+    </ul>
+    <p>Vous pouvez donc désormais écrire votre règle CSS pour la div <code>#link</code> qui dit que&nbsp;</p>
+    <ul>
+        <li>sa largeur est de 60px,</li>
+        <li>sa hauteur est de 65px,</li>
+        <li>elle utilise comme fond l'image <em>link.png</em>,</li>
+        <li>elle est en position absolue (et oui puisque notre but final sera quand même de faire bouger link à l'écran).</li>
+    </ul>
+    <p>Si tout se passe bien, voici ce que vous devriez obtenir : </p>
+    <img src="assets/result/result.png" alt="Link sur le décors de fond">
+</body>
+</html>

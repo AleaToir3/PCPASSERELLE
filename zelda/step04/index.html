@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Passerelle - Zelda en javacript Objet</title>
+</head>
+<body>
+    <h1>Zelda en javascript Objet</h1>
+    <h2>Animation</h2>
+    <p>Il est temps d'animer link.</p>
+    <p>Comme expliqué précédemment, la spritesheet de link est faite en ligne et colonnes, une ligne pour chaque mouvement dans chaque direction, et une colonne par étapes dans l'animation.</p>
+    <p>Les proprétés "row" et "col" de link sont là pour ça. Commencez par les initialiser à 1 toutes les deux.</p>
+    <h3>Calcule de la nouvelle colonne</h3>
+    <p>A chaque refresh, il faut afficher l'image suivante, cel revient à dire, passer à la colonne suivante.<br>
+    Il suffit donc d'incréementer col de 1. Attention cependant, il n'y a que 10 colonnes, il faut donc revenir à la première si on dépasse là limite de 10.</p>
+    <h3>Calcule de la ligne</h3>
+    <p>Le calcul de la ligne se fait en 2 étapes&nbsp;:</p>
+    <p>Premièrement il faut regarder la propriété "this.direction" avec un "switch...case" et mettre une valeur entre 1 et 4 dans "this.row" selon ce qu'on y trouve (vous avez décidé de cela à l'étape précédente).</p>
+    <p>Deuxièmement, si et seulement si link marche, il faut ajouter 4 à ce numéro de ligne (pour tomber sur les lignes d'animation de marche)</p>
+    <h3>Appliquer les nouvelles valeurs</h3>
+    <p>Mantenantque la ligne et colonne ont été calculées, il ne reste plus qu'à appliquer cela à votre div "#link".</p>
+    <p>Pour cela, trouvez la div dans le document, puis utiliser tour à tour ".style.backgroundPositionX" et ".style.backgroundPositionY" pour modifier la position du background de link.</p>
+    <p>Les calculs en pixel pour chacun sont :</p>
+    <ul>
+        <li>X : -(this.col-1)*60 + 'px'</li>
+        <li>Y : -(this.row-1)*65 + 'px'</li>
+    </ul>
+    <h2>Résultat</h2>
+    <p>Si tout se passe bien, votre personnage devrait maintenant se tourner lorsque vous appuyer sur une touche, et surtout courir si vous restez appuyé, et s'arrêter lorsque vous relâcher la touche.</p>
+</body>
+</html>
