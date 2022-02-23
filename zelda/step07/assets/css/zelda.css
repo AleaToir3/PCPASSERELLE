@@ -1,0 +1,19 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height:100%;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/bg.png");
+    background-size: 3840px;
+}
+
+#link {
+    position: absolute;
+    width:60px;
+    height: 65px;
+    background-image: url("../img/link.png");
+}

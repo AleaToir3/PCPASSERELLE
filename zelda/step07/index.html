@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Passerelle - Zelda en javacript Objet</title>
+</head>
+<body>
+    <h1>Zelda en javascript Objet</h1>
+    <h2>Faire bouger le décors</h2>
+    <p>Enfin, vous pouvez faire bouger le décors lorsque link atteint les limites du document.</p>
+    <p>Pour cela il faut créer un nouvel objet "map" dans "map.js".</p>
+    <p>Celui-ci ressemblera beaucoup à l'objet link mais en beaucoup plus simple.</p>
+    <p>Il faut 4 propriétés&nbsp;</p>
+    <ul>
+        <li>map.x qui sera initialisé à 0</li>
+        <li>map.yqui sera initialisé à 0</li>
+        <li>map.width qui sera initialisé à 2160</li>
+        <li>map.height qui sera initialisé à 3840</li>
+    </ul>
+    <p>Puis il faut 5 méthodes&nbsp;</p>
+    <ul>
+        <li>scrollUp</li>
+        <li>scrollDown</li>
+        <li>scrollRight</li>
+        <li>scrollLeft</li>
+        <li>refresh</li>
+    </ul>
+    <p>La méthode refresh est la plus simple, elle se contente de positionner correctement le backround de l'élément 'map', en utilisant backgroundPositionX et backgroundPositionY. Cela ressemble beaucoup à ce qui se passe dans la fonction refresh de link, mais avec backgroundPosition au lieu de top et left.</p>
+    <p>Les 4 méhodes scroll... permettent de modifier map.x ou map.y d'autant que l'on fait bouger link lorsque celui-bouge (deltaMove).</p>
+    <p>/p>
+    <ul>
+        <li>ScrollUp : 8 pixels vers le haut</li>
+        <li>scrollDown : 8 pixels vers le bas</li>
+        <li>scrollLeft : 8 pixels vers la gauche</li>
+        <li>scrollRight : 8 pixels vers la droite</li>
+    </ul>
+    <p>Attention ! Il faut s'assurer de ne pas dépasser les limites du monde. C'est à dire que si l'on atteint le limites de la cart, il ne faut pas scroller plus que nécesaire.  </p>
+    <p>Ensuite de retour dans "link.js", là où vous faites le test que link ne sorte pas de l'écran, il suffit d'ajouter des "else" pour faire scroller le décors dans le bon sens quand link atteint le bord.</p>
+</body>
+</html>

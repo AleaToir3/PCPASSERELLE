@@ -1,3 +1,5 @@
+let perso = document.getElementById('link')
+
 var link = new Object();
 
 // Position de link à l'écran
@@ -19,12 +21,37 @@ link.isWalking = false;
  * Affichage de link
  */
 link.refresh = function (){
+    this.col++;
+    if (this.col > 10)
+        this.col = 1;
+
+    if (this.isWalking){
+        console.log('Refresh : en marche vers ' + this.direction + "aaaaa" + this.isWalking)  
+    }else{
+        console.log('Refresh : à l\'arrêt vers ' + this.direction);
+    }
+
+    switch (this.direction) {
+        case 'left':
+           link.row = 2
+        break;
+        case 'right':    
+           link.row = 4
+        break;
+        case 'up':  
+           link.row = 3
+        break;
+        case 'down':   
+           link.row = 1
+        break;
+    }
 
     if (this.isWalking)
-        console.log('Refresh : en marche vers ' + this.direction);
-    else
-        console.log('Refresh : à l\'arrêt vers ' + this.direction);
+        this.row += 4;
 
+
+    perso.style.backgroundPositionX = -(this.col-1)*60 +"px"
+    perso.style.backgroundPositionY = -(this.row-1)*65 +"px"
 }
 
 /**
@@ -33,6 +60,7 @@ link.refresh = function (){
 link.moveLeft = function (){
     this.direction = "left";
     this.isWalking = true;
+    
 }
 // Idem mais vers la droite
 link.moveRight = function (){

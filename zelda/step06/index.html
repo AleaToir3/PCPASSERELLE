@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Passerelle - Zelda en javacript Objet</title>
+</head>
+<body>
+    <h1>Zelda en javascript Objet</h1>
+    <h2>Rester dans les limites</h2>
+    <p>Il faut maintenant faire en sorte que link ne sorte plus de la zone du document lorsqu'il atteint es bords.</p>
+    <p>Pour cela rien de plus simple, il suffit de mettre un simple "if" dans chacune    de méthodes faisant se déplacer link de façon à ne pas appliquer le "deltaMove" si link est aux bords de l'écran.</p>
+    <p>Tout le défi est de savoir comment détecter ces bords.</p>
+    <p>Pour moveLeft() et MoveUp() c'est facile on ne veut pas que link.x ou link.y passent sous 0 (mieux vaut dire 10 pour avoir une petite marge).</p>
+    <p>Pour moveRight() et MoveDown() c'est un peu plus complexe, il faut utiliser <code>document.body.clientWidth</code> et <code>document.body.clientHeight</code> pour connaitre la largeur et la hauteur totale du document et vérifier que link de les dépasse pas. <br>
+        Attention, il faut tenir compte de la largeur de link lui-même ainsi que de sa hauteur. Et oui. Admettons que votre document fasse 2000 pixels de large, et votre sprite, 50 pixels de large. Alors vous ne voulez pas qe votre personnage aille plus loin que 1950px.</p>
+</body>
+</html>

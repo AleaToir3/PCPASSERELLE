@@ -56,6 +56,8 @@ link.refresh = function (){
     document.getElementById('link').style.backgroundPositionX = -(this.col-1)*60 + 'px';
     document.getElementById('link').style.backgroundPositionY = -(this.row-1)*65 + 'px';
 
+    document.getElementById('link').style.left = this.x+"px"
+    document.getElementById('link').style.top = this.y+"px"
 }
 
 /**
@@ -64,21 +66,28 @@ link.refresh = function (){
 link.moveLeft = function (){
     this.direction = "left";
     this.isWalking = true;
+    this.x -= this.deltaMove;
 }
 // Idem mais vers la droite
 link.moveRight = function (){
     this.direction = "right";
     this.isWalking = true;
+    this.x += this.deltaMove;
+
 }
 // Idem mais vers le haut
 link.moveUp = function (){
     this.direction = "up";
     this.isWalking = true;
+    this.y -= this.deltaMove;
+
 }
 // Idem mais vers le bas
 link.moveDown = function (){
     this.direction = "down";
     this.isWalking = true;  
+    this.y += this.deltaMove;
+
 }
 // il faut que link s'arrête (quand on relâche les touches du clavier en principe)
 link.stop = function(){

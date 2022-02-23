@@ -1,0 +1,658 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Fitbit - énoncé</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1a65942a-a547-4ff5-95a8-a28531e4ec21" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="data:image/png;base64,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"/></div><h1 class="page-title">Fitbit - énoncé</h1></header><div class="page-body"><h1 id="ba697143-9006-45f2-beed-7bfc5585daf9" class="">Introduction</h1><p id="dd48e7b1-37e8-4905-9445-d1d18cb484de" class="">Le but de cet exercice est d&#x27;intégrer la maquette en responsive design. Il y a notamment des jeux d&#x27;inversion d&#x27;affichage d&#x27;éléments et des ajouts de pseudo-éléments. Vous pourrez également découvrir l&#x27;utilisation des variables CSS. Enjoy ! ☺</p><h1 id="2b0dacb8-622a-4279-8fba-71f4729a603a" class="">Énoncé</h1><p id="752789b0-de7c-4e5d-a86e-f774b1d2b4a5" class="">Intégrer cette maquette :</p><figure id="f84eb991-c083-466b-89b3-383da1c165dc" class="image"><a href="Fitbit%20-%20e%20f84eb/desktop.png"><img style="width:2880px" src="Fitbit%20-%20e%20f84eb/desktop.png"/></a></figure><p id="f4a04096-a611-4f6d-8da6-c3b67ee2686e" class="">On utilisera Bootstrap pour l&#x27;intégration de cette maquette.</p><p id="415af713-8c8a-4f51-b237-0ffa39af8c68" class="">Les items du menu de navigation renvoient vers des ancres dans les sections correspondantes dans la page.</p><figure id="8087258a-9609-49c5-b3fd-c963c29e72a1" class="link-to-page"><a href="Fitbit%20-%20e%20f84eb/Voir%20les%20m%2080872.html"><span class="icon">📱</span>Voir les maquettes responsive</a></figure><figure id="19cb0c55-3c45-47bf-965b-891c075a7324" class="link-to-page"><a href="Fitbit%20-%20e%20f84eb/Les%20variab%2019cb0.html"><span class="icon">👍</span>Les variables CSS ? Késako ? Astuce</a></figure><figure id="3fb82e7c-ac41-4500-9697-1b8cfa7c85c9" class="link-to-page"><a href="Fitbit%20-%20e%20f84eb/C&#x27;est%20quoi%203fb82.html"><span class="icon">👍</span>C&#x27;est quoi ces formes avec les images ? Astuce</a></figure><h1 id="c0e89b52-473b-4dac-940e-9ccb56ddb4aa" class="">Typographies utilisées</h1><p id="d1832872-565f-451b-ad32-facc288a8dbf" class="">Titres et contenu : Montserrat</p><h1 id="2f7947a0-b78b-4d4a-b8d4-2a252fdb40d3" class="">Couleurs</h1><ul id="47c072bd-992b-4127-b4dd-456bd9533b46" class="bulleted-list"><li style="list-style-type:disc">bleu: #114357;</li></ul><ul id="ed90e318-9f48-447a-bd51-d6d8ca3f2f5d" class="bulleted-list"><li style="list-style-type:disc">bleu clair : #3BBCF0;</li></ul><ul id="68ca8067-7cbe-4d71-91de-d6ae8b68ed4c" class="bulleted-list"><li style="list-style-type:disc">mauve: #A6787D;</li></ul><ul id="d59e9962-8071-43ca-88fe-867a6a11e67d" class="bulleted-list"><li style="list-style-type:disc">rose: #F29492;</li></ul><h1 id="8fe3aa03-398e-4539-bd2a-490193ef931b" class="">Liens utiles</h1><ul id="3981a86f-d976-4041-8d94-f4c6e71a325e" class="bulleted-list"><li style="list-style-type:disc"><code><a href="https://la-cascade.io/les-pseudo-elements-css-before-et-after/">::before</a></code><a href="https://la-cascade.io/les-pseudo-elements-css-before-et-after/"> et </a><code><a href="https://la-cascade.io/les-pseudo-elements-css-before-et-after/">::after</a></code></li></ul><ul id="b73fa0f1-e933-4f8f-9cba-30d3408a3250" class="bulleted-list"><li style="list-style-type:disc"><a href="https://developer.mozilla.org/fr/docs/Web/CSS/Using_CSS_custom_properties">Les variables CSS</a></li></ul><ul id="6a6ef95e-ddc8-4906-8c48-f3a20dfc17d2" class="bulleted-list"><li style="list-style-type:disc"><a href="https://getbootstrap.com/docs/4.0/utilities/flex/">Les class Bootstrap : flexbox</a></li></ul><p id="2b33ff4a-25d4-43e5-872c-13a43d0735b0" class="">
+</p></div></article></body></html>

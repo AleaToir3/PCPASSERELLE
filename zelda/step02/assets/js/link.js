@@ -1,6 +1,6 @@
 let link = new Object();
 
-link.refresh=()=>{console.log('oui!')};
+link.refresh=()=>{console.log("affiche l'image suivante de link!")};
 link.moveLeft=()=>{console.log('oui!')} ;
 link.moveRight=()=>{console.log('oui!')} ;
 link.moveUp=()=>{console.log('oui!')} ;
