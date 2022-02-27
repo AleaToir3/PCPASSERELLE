@@ -1,0 +1,22 @@
+<section id="battle-start">
+    <h1 class="w100 text-center">Combat</h1>
+    <div class="w25">
+        <img src="assets/img/<?=$firstFighter['image']?>" alt="" class="img-fluid h100 img-fit">
+        <div class="fighter-name">
+            <h4><?=$firstFighter['name']?></h4>
+            <?php if($firstFighter['punchLine']) : ?>
+                <blockquote><?=$firstFighter['punchLine']?></blockquote>
+            <?php endif; ?>
+        </div>
+    </div>
+    <div class="w25">
+        <h5 class="text-humongus text-center">VS</h5>
+    </div>
+    <div class="w25">
+        <img src="assets/img/<?=$secondFighter['image']?>" alt="" class="img-fluid h100 img-fit">
+        <div class="fighter-name">
+            <h4><?=$secondFighter['name']?></h4>
+            <blockquote><?=$secondFighter['punchLine']?></blockquote>
+        </div>
+    </div>
+</section>

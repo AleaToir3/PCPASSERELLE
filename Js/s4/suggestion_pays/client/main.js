@@ -22,9 +22,8 @@ let ul = document.getElementById('suggest');        // L'objet DOM représentant
 
 // ---- FONCTIONS
 
-//  input.addEventListener('keyup',allo);
-//  function allo(e){
-   
+// input.addEventListener('keyup',allo);
+// function allo(e){
 //     window.fetch('../serveur/api.php?search='+e.currentTarget.value)
 //     // Première fonction : s'occupe d'analyser la réponse HTTP (gestion des erreurs etc.)
 //     .then(function(httpResponse)
@@ -37,29 +36,42 @@ let ul = document.getElementById('suggest');        // L'objet DOM représentant
 //     {
 //         ul.innerHTML = results;
 //  })}
-// ---- CODE PRINCIPAL
+// // ---- CODE PRINCIPAL
 
-// Recherche du champ de saisie et de la balise <ul> qui va contenir les résultats.
+// // Recherche du champ de saisie et de la balise <ul> qui va contenir les résultats.
 
-// Installation d'un gestionnaire d'évènement sur la saisie au clavier dans le champ.
-
-
+// // Installation d'un gestionnaire d'évènement sur la saisie au clavier dans le champ.
 
 
 
-// ---------- PARTI JSON ----------
-input.addEventListener('keyup',allo);
- function allo(e){
+
+
+// // ---------- PARTI JSON ----------
+// input.addEventListener('keyup',allo);
+//  function allo(e){
    
-    window.fetch('../serveur/api.php?search='+e.currentTarget.value)
-    // Première fonction : s'occupe d'analyser la réponse HTTP (gestion des erreurs etc.)
-    .then(function(httpResponse)
-    {
-        // Demande à récupérer les données de la réponse HTTP en JSON.
-        return httpResponse.json()
-    })
-    // Deuxième fonction : s'occupe de traiter les données de la réponse HTTP
-    .then(function(results) // results = les données JSON, grâce au httpResponse.json() ci-dessus
-    {
-        ul.innerHTML = results;
- })}
+//     window.fetch('../serveur/api.php?search='+e.currentTarget.value)
+//     // Première fonction : s'occupe d'analyser la réponse HTTP (gestion des erreurs etc.)
+//     .then(function(httpResponse)
+//     {
+//         // Demande à récupérer les données de la réponse HTTP en JSON.
+//         return httpResponse.json()
+//     })
+//     // Deuxième fonction : s'occupe de traiter les données de la réponse HTTP
+//     .then(function(results) // results = les données JSON, grâce au httpResponse.json() ci-dessus
+//     {
+//         ul.innerHTML = results;
+//  })}
+
+
+// refaire l exo
+
+input.addEventListener('keyup',allo);
+function allo(e){
+window.fetch('../serveur/api.php')
+.then(function(httpres){
+return httpres    
+})
+
+
+}
