@@ -1,0 +1,56 @@
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: local('Material Icons'), local('MaterialIcons-Regular'),
+      url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+      url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+      url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+  }
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.backPopUp {
+    background: rgba(100, 150, 150, 0.459);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.popup
+{
+    background: rgb(90,140, 140);
+    position: absolute;
+    height: 200px;
+    width: 400px;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(225, 234, 235);
+    border: 2px solid white;
+}
+.iconClosePopUp{
+    position: absolute;
+    right: 0.5em;
+    top: 0.5rem;
+    color: white;
+    border-radius: 50%;
+}
+
+.bye{
+    display: none;
+}
+.outlined{
+    color: white;
+}
+
+.md-36{
+    font-size: 36px;
+}

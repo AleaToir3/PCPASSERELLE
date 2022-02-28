@@ -23,6 +23,7 @@ class Entity{
         
         $attack = (rand($this->attackmax,$this->attackmin));
         $this->takedmg($attack,$enemy);
+        echo 'DOMMAGE EST DE :'.$attack;
 
         if(get_class($enemy) == 'BlackDesigner'){
         switch ($attack) {

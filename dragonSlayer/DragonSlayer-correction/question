@@ -1,0 +1,5 @@
+entity  ---  abstract class Entity  ???
+entity  ---  public function attack(Entity $other) entity en paramtre ckoi ?
+entity  ---  public function takeDamage(int $damage) pk int dans dmg 
+randomizer ----     global $fighters; varibale global .?
+
