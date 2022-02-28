@@ -44,9 +44,10 @@ link.refresh = function (){
         case 'up' : 
           this.row = 3;
             break;
-        default :   
+        case 'right' : 
           this.row = 4;  
-            break;      
+            break; 
+            default :   
     }
     // Et si link marche ou pas (dans ce cas on utilise les 4 dernières ligne)
     if (this.isWalking)
@@ -61,7 +62,7 @@ link.refresh = function (){
     document.getElementById('link').style.backgroundPositionY = -(this.row-1)*65 + 'px';
 
 }
-
+ 
 /**
  * Mouvements de link
  */
@@ -76,7 +77,7 @@ link.moveRight = function (){
     this.direction = "right";
     this.isWalking = true;
     if (this.x < document.body.clientWidth - 70)
-        this.x += this.deltaMove;    
+        this.x += this.deltaMove; 
 }
 // Idem mais vers le haut
 link.moveUp = function (){

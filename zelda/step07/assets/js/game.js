@@ -6,6 +6,7 @@
 var timer = window.setInterval(refresh, 100);
 function refresh(){
     link.refresh();
+    map.refresh();
 }
 
 /**
@@ -24,9 +25,11 @@ function keyDown(evt){
             break;
         case "ArrowUp":
             link.moveUp();
+            map.scrollUp()
             break;
         case "ArrowDown":
             link.moveDown();
+            map.scrollDown()
             break;     
         default:
             break;                                           

@@ -10,10 +10,22 @@ map.height = 3840 ;
 
 
 
-map.scrollUp = 8 ;
-map.scrollDown = 8 ;
-map.scrollRight = 8 ;
-map.scrollLeft = 8 ;
-map.refresh = 8 ; 
+map.scrollUp = ()=>{
+this.y -= link.deltaMove 
+}
+map.scrollDown = ()=>{
+this.y -= link.deltaMove 
+}
+map.scrollRight = ()=>{
 
+}
+map.scrollLeft = ()=>{
 
+}
+map.refresh = ()=>{
+carte.style.backgroundPositionX = this.x + "px";
+carte.style.backgroundPositionY = this.y + "px";
+}
+let perso  = document.getElementById('link');
+let carte  = document.getElementById('map');
+// let mapc  = document.getElementById('map');
